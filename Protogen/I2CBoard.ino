@@ -1,16 +1,7 @@
-
-//Defines for 32x4 SPI Board
-#include <MD_Parola.h>
-#include <MD_MAX72xx.h>
-
-//Defines for 8x8 I2C Board
+/* 8x8 I2C Board */
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include "Adafruit_LEDBackpack.h"
-
-#define SPI_HARDWARE_TYPE MD_MAX72XX::FC16_HW
-#define SPI_MAX_DEVICES 4
-#define SPI_CHIP_SEL_PIN 8
 
 static const uint8_t PROGMEM
   smile_bmp[] = { B00111100,
@@ -30,26 +21,21 @@ static const uint8_t PROGMEM
                   B01000010,
                   B00111100 };
 
-// Objects to control boards
-MD_Parola spiMatrix = MD_Parola(SPI_HARDWARE_TYPE, SPI_CHIP_SEL_PIN, SPI_MAX_DEVICES);
-Adafruit_8x8matrix i2cMatrix = Adafruit_8x8matrix();
+//Control object for I2C Board
+static Adafruit_8x8matrix i2cMatrix = Adafruit_8x8matrix();
 
-void setup_SPI_32x4() {
-  spiMatrix.begin();
-  spiMatrix.setIntensity(0);
-  spiMatrix.displayClear();
-  spiMatrix.displayText("Hello World!!! ", PA_CENTER, 75, 100, PA_SCROLL_LEFT);
-}
+//Refresh timer for I2C Board
+static unsigned long i2cLastRefreshTime = millis();
+
+//Status flag for which smiley to show
+static bool i2cFlipFlop = true;
 
 void setup_I2C_8x8() {
   i2cMatrix.begin(0x70);
   i2cMatrix.setBrightness(5);
 }
 
-//Refresh timer for I2C Board
-unsigned long i2cLastRefreshTime = millis();
-
-bool i2c_readyToRefresh() {
+static bool i2c_readyToRefresh() {
   return (unsigned long)(millis() - i2cLastRefreshTime) >= 500ul;
 }
 
@@ -57,18 +43,7 @@ void i2c_updateRefreshTime() {
   i2cLastRefreshTime = millis();
 }
 
-void setup() {
-  setup_SPI_32x4();
-  setup_I2C_8x8();
-}
-
-bool i2cFlipFlop = true;
-
-void loop() {
-  if (spiMatrix.displayAnimate()) {
-    spiMatrix.displayReset();
-  }
-
+void main_I2C_8x8() {
   if (i2c_readyToRefresh()) {
 
     i2cMatrix.clear();
