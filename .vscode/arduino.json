@@ -1,0 +1,6 @@
+{
+    "board": "arduino:avr:nano",
+    "port": "COM4",
+    "sketch": "Protogen\\Protogen.ino",
+    "configuration": "cpu=atmega328"
+}
