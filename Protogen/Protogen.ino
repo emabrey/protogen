@@ -1,4 +1,6 @@
 /* Main Program */
+#include "SPIBoard.h"
+#include "I2CBoard.h"
 
 void setup() {
   setup_SPI_32x4();

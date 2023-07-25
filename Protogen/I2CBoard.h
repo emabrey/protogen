@@ -3,6 +3,7 @@
 #include <Adafruit_GFX.h>
 #include "Adafruit_LEDBackpack.h"
 #include "protothreads.h"
+#include "Expressions.h"
 
 #define I2C_REFRESH_RATE_MILLI 500
 
