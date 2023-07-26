@@ -6,7 +6,7 @@
 #include <protothreads.h>
 #include "Expressions.h"
 
-#define I2C_REFRESH_RATE_MILLI 500
+#define I2C_REFRESH_RATE_MILLI 500ul
 
 // Control object for I2C Board
 static Adafruit_8x8matrix i2cMatrix = Adafruit_8x8matrix();
@@ -14,7 +14,7 @@ static Adafruit_8x8matrix i2cMatrix = Adafruit_8x8matrix();
 // Status flag for which eye sprite to show
 static bool i2cFlipFlop = true;
 
-// Protothread state
+// Protothread state for I2C Board
 static pt i2cState;
 
 void setup_I2C_8x8()
