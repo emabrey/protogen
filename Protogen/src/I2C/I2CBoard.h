@@ -1,10 +1,8 @@
 /* 8x8 I2C Board */
 
-#include <Wire.h>
-#include <Adafruit_GFX.h>
 #include <Adafruit_LEDBackpack.h>
 #include <protothreads.h>
-#include "Expressions.h"
+#include "I2CExpressions.h"
 
 #define I2C_REFRESH_RATE_MILLI 500ul
 

@@ -1,7 +1,7 @@
 /* Main Program */
 
-#include "src/SPIBoard.h"
-#include "src/I2CBoard.h"
+#include "src/SPI/SPIBoard.h"
+#include "src/I2C/I2CBoard.h"
 
 void setup()
 {
