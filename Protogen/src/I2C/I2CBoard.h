@@ -9,8 +9,8 @@
 // Control object for I2C Board
 static Adafruit_8x8matrix i2cMatrix = Adafruit_8x8matrix();
 
-// Status flag for which eye sprite to show
-static bool i2cFlipFlop = true;
+// Current eye sprite
+static int currentEyeSpriteIndex = EYE_EXPRESSION_FIRST;
 
 // Protothread state for I2C Board
 static pt i2cState;
@@ -31,17 +31,15 @@ int i2c_Thread(struct pt *pt)
   {
     i2cMatrix.clear();
 
-    if (i2cFlipFlop)
+    const uint8_t *currentEyeSprite = getEyeExpression(currentEyeSpriteIndex);
+    i2cMatrix.drawBitmap(0, 0, currentEyeSprite, 8, 8, LED_ON);
+    i2cMatrix.writeDisplay();
+    currentEyeSpriteIndex++;
+    if (currentEyeSpriteIndex > EYE_EXPRESSION_LAST)
     {
-      i2cMatrix.drawBitmap(0, 0, eye_normal, 8, 8, LED_ON);
-    }
-    else
-    {
-      i2cMatrix.drawBitmap(0, 0, eye_angry2, 8, 8, LED_ON);
+      currentEyeSpriteIndex = EYE_EXPRESSION_FIRST;
     }
 
-    i2cMatrix.writeDisplay();
-    i2cFlipFlop = !i2cFlipFlop;
     PT_SLEEP(pt, I2C_REFRESH_RATE_MILLI);
   }
 
