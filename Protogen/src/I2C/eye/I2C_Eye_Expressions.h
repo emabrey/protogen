@@ -39,7 +39,7 @@ static const uint8_t PROGMEM
     eye_heart_big_alt[] = {B00000000, B00001000, B00011100, B00111110, B01111111, B01111111, B00110110, B00000000},
     eye_heart_small_alt[] = {B00000000, B00000000, B00001000, B00011100, B00111110, B00110110, B00000000, B00000000},
     eye_overheat[] = {B11111111, B00100100, B00010010, B00100100, B01001000, B00100100, B00010010, B00100100},
-    error[] = {B01111110, B10111101, B11011011, B11100111, B11100111, B11011011, B10111101, B01111110};
+    eye_error[] = {B01111110, B10111101, B11011011, B11100111, B11100111, B11011011, B10111101, B01111110};
 
 static const uint8_t *getEyeExpression(uint8_t index)
 {
@@ -100,7 +100,7 @@ static const uint8_t *getEyeExpression(uint8_t index)
         // This returns a special bitmap that doesn't look like an eye
         // to indicate that somehow our code has requested an invalid
         // eye expression. The expression should look like an inverted X
-        return error;
+        return eye_error;
         break;
     }
 }
