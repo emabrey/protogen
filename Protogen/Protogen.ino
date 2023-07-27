@@ -8,12 +8,12 @@ void setup()
 {
   setup_SPI_32x4();
   setup_I2C_8x8();
-  setup_I2C_16x8();
+  setup_I2C_8x16();
 }
 
 void loop()
 {
   main_SPI_32x4();
   main_I2C_8x8();
-  main_I2C_16x8();
+  main_I2C_8x16();
 }

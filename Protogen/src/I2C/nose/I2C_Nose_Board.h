@@ -10,13 +10,13 @@
 // Control object for I2C Nose Board
 static Adafruit_8x8matrix i2cNoseMatrix = Adafruit_8x8matrix();
 
-// Current eye sprite
+// Current nose sprite
 static int currentNoseSpriteIndex = NOSE_EXPRESSION_FIRST;
 
 // Protothread state for I2C Nose Board
 static pt i2cNoseState;
 
-void setup_I2C_16x8()
+void setup_I2C_8x16()
 {
   i2cNoseMatrix.begin(I2C_ADDRESS_NOSE_BOARD);
   i2cNoseMatrix.setBrightness(5);
@@ -33,7 +33,7 @@ int i2c_Nose_Thread(struct pt *pt)
     i2cNoseMatrix.clear();
 
     const uint8_t *currentNoseSprite = getNoseExpression(currentNoseSpriteIndex);
-    i2cNoseMatrix.drawBitmap(0, 0, currentNoseSprite, 16, 8, LED_ON);
+    i2cNoseMatrix.drawBitmap(0, 0, currentNoseSprite, 8, 16, LED_ON);
     i2cNoseMatrix.writeDisplay();
     currentNoseSpriteIndex++;
     if (currentNoseSpriteIndex > NOSE_EXPRESSION_LAST)
@@ -47,7 +47,7 @@ int i2c_Nose_Thread(struct pt *pt)
   PT_END(pt);
 }
 
-void main_I2C_16x8()
+void main_I2C_8x16()
 {
   PT_SCHEDULE(i2c_Nose_Thread(&i2cNoseState));
 }
