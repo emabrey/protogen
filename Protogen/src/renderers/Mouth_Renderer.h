@@ -10,9 +10,10 @@
 #include <Adafruit_GFX.h>
 #include <MD_Parola.h>
 #include <protothreads.h>
+
 #include "../SPI_Config.h"
 
-class Mouth_Board_Manager : Adafruit_GFX
+class Mouth_Renderer : Adafruit_GFX
 {
 private:
   // Control object for 8x32 SPI Mouth board
@@ -37,7 +38,7 @@ private:
   }
 
 public:
-  Mouth_Board_Manager() : Adafruit_GFX(SPI_MOUTH_WIDTH, SPI_MOUTH_HEIGHT)
+  Mouth_Renderer() : Adafruit_GFX(SPI_MOUTH_WIDTH, SPI_MOUTH_HEIGHT)
   {
   }
 

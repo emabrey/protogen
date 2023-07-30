@@ -3,9 +3,9 @@
 
 #include <Adafruit_LEDBackpack.h>
 #include <protothreads.h>
-#include "I2C_Config.h"
+#include "../../I2C_Config.h"
 
-class I2C_Board_Manager_Base
+class I2C_Renderer
 {
 protected:
     virtual const uint8_t *getSprite();
@@ -20,7 +20,7 @@ protected:
     // Protothread state
     pt i2cState;
 
-    I2C_Board_Manager_Base(
+    I2C_Renderer(
         Adafruit_LEDBackpack *leftBoard, Adafruit_LEDBackpack *rightBoard,
         Adafruit_GFX *leftGraphics, Adafruit_GFX *rightGraphics,
         const uint8_t boardWidth,
@@ -34,8 +34,8 @@ protected:
         this->boardHeight = boardHeight;
     }
 
-    I2C_Board_Manager_Base(Adafruit_8x16matrix *left, Adafruit_8x16matrix *right) : I2C_Board_Manager_Base(left, right, left, right, 8, 16){};
-    I2C_Board_Manager_Base(Adafruit_8x8matrix *left, Adafruit_8x8matrix *right) : I2C_Board_Manager_Base(left, right, left, right, 8, 8){};
+    I2C_Renderer(Adafruit_8x16matrix *left, Adafruit_8x16matrix *right) : I2C_Renderer(left, right, left, right, 8, 16){};
+    I2C_Renderer(Adafruit_8x8matrix *left, Adafruit_8x8matrix *right) : I2C_Renderer(left, right, left, right, 8, 8){};
 
     inline void clear()
     {

@@ -1,11 +1,11 @@
 /* 8x8 I2C Board */
 
-#include "../I2C_Board_Manager_Base.h"
-#include "Nose_Expressions.h"
+#include "abstract/I2C_Renderer.h"
+#include "../sprites/Nose_Sprites.h"
 
 #define SPI_LED_ON 1
 
-class Nose_Board_Manager : I2C_Board_Manager_Base
+class Nose_Renderer : I2C_Renderer
 {
 private:
   // Control object for I2C 8x8 Nose Board
@@ -18,7 +18,7 @@ private:
 
   inline const uint8_t *getSprite()
   {
-    return getNoseExpression(currentSpriteIndex);
+    return getNoseSprite(currentSpriteIndex);
   }
 
   inline void updateSprite()
@@ -35,7 +35,7 @@ private:
   }
 
 public:
-  Nose_Board_Manager() : I2C_Board_Manager_Base(&leftNoseMatrix, &rightNoseMatrix)
+  Nose_Renderer() : I2C_Renderer(&leftNoseMatrix, &rightNoseMatrix)
   {
   }
 

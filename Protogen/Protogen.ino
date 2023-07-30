@@ -1,16 +1,14 @@
 /* Main Program */
+#include "src/renderers/Eye_Renderer.h"
+#include "src/renderers/Nose_Renderer.h"
+#include "src/renderers/Mouth_Renderer.h"
 
-#include "src/SPI/mouth/Mouth_Board_Manager.h"
-#include "src/I2C/eye/Eye_Board_Manager.h"
-#include "src/I2C/nose/Nose_Board_Manager.h"
-
-static Eye_Board_Manager eyes;
-static Nose_Board_Manager noses;
-static Mouth_Board_Manager mouths;
+static Eye_Renderer eyes;
+static Nose_Renderer noses;
+static Mouth_Renderer mouths;
 
 void setup()
 {
-
   noses.setup_I2C();
   eyes.setup_I2C();
   mouths.setup_SPI_32x4();

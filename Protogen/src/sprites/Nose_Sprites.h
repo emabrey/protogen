@@ -1,4 +1,4 @@
-/* Expressions for 8x8 I2C Nose Matrix */
+/* Bitmap Sprites for 8x8 I2C Nose Matrix */
 
 #define NOSE_EXPRESSION_COUNT 17
 #define NOSE_EXPRESSION_FIRST 0
@@ -41,7 +41,7 @@ static const uint8_t PROGMEM
     nose_overheat[] = {B11111111, B00100100, B00010010, B00100100, B01001000, B00100100, B00010010, B00100100},
     nose_error[] = {B01111110, B10111101, B11011011, B11100111, B11100111, B11011011, B10111101, B01111110};
 
-static const uint8_t *getNoseExpression(uint8_t index)
+static const uint8_t *getNoseSprite(uint8_t index)
 {
     switch (index)
     {

@@ -1,4 +1,4 @@
-/* Expressions for 8x16 I2C Eye Matrix */
+/* Bitmap Sprites for 8x16 I2C Eye Matrix */
 
 #define EYE_EXPRESSION_FIRST 0
 #define EYE_EXPRESSION_LAST 16
@@ -41,7 +41,7 @@ static const uint8_t PROGMEM
     eye_overheat[] = {B11111111, B00100100, B00010010, B00100100, B01001000, B00100100, B00010010, B00100100, B00000000, B00000000, B00000000, B00000000, B00000000, B00000000, B00000000, B00000000},
     eye_error[] = {B01111110, B10111101, B11011011, B11100111, B11100111, B11011011, B10111101, B01111110, B00000000, B00000000, B00000000, B00000000, B00000000, B00000000, B00000000, B00000000};
 
-static const uint8_t *getEyeExpression(uint8_t index)
+static const uint8_t *getEyeSprite(uint8_t index)
 {
     switch (index)
     {

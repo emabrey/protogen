@@ -1,9 +1,9 @@
 /* 8x16 I2C Eye Board */
 
-#include "../I2C_Board_Manager_Base.h"
-#include "Eye_Expressions.h"
+#include "abstract/I2C_Renderer.h"
+#include "../sprites/Eye_Sprites.h"
 
-class Eye_Board_Manager : I2C_Board_Manager_Base
+class Eye_Renderer : I2C_Renderer
 {
 private:
   // Control object for I2C 8x16 Eye Board
@@ -16,7 +16,7 @@ private:
 
   inline const uint8_t *getSprite()
   {
-    return getEyeExpression(currentSpriteIndex);
+    return getEyeSprite(currentSpriteIndex);
   }
 
   inline void updateSprite()
@@ -33,7 +33,7 @@ private:
   }
 
 public:
-  Eye_Board_Manager() : I2C_Board_Manager_Base(&leftEyeMatrix, &rightEyeMatrix)
+  Eye_Renderer() : I2C_Renderer(&leftEyeMatrix, &rightEyeMatrix)
   {
   }
 
