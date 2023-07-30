@@ -11,14 +11,14 @@ static Mouth_Board_Manager mouths;
 void setup()
 {
 
-  noses.setup_I2C_8x8();
-  eyes.setup_I2C_8x16();
+  noses.setup_I2C();
+  eyes.setup_I2C();
   mouths.setup_SPI_32x4();
 }
 
 void loop()
 {
-  noses.main_I2C_8x8();
-  eyes.main_I2C_8x16();
+  noses.main_I2C();
+  eyes.main_I2C();
   mouths.main_SPI_32x4();
 }

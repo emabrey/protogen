@@ -1,64 +1,49 @@
 /* 8x16 I2C Eye Board */
 
-#include <Adafruit_LEDBackpack.h>
-#include <protothreads.h>
-#include "../I2C_Config.h"
+#include "../I2C_Board_Manager_Base.h"
 #include "Eye_Expressions.h"
 
-class Eye_Board_Manager
+class Eye_Board_Manager : I2C_Board_Manager_Base
 {
-
 private:
-  // Control object for I2C Eye Board
+  // Control object for I2C 8x16 Eye Board
   Adafruit_8x16matrix leftEyeMatrix = Adafruit_8x16matrix();
+  Adafruit_8x16matrix rightEyeMatrix = Adafruit_8x16matrix();
+  unsigned long lastSpriteChange = millis();
 
   // Current eye sprite
   int currentSpriteIndex = EYE_EXPRESSION_FIRST;
 
-  // Protothread state for I2C Eye Board
-  pt i2cState;
-
-  inline int i2c_Thread(struct pt *pt)
+  inline const uint8_t *getSprite()
   {
-    PT_BEGIN(pt);
+    return getEyeExpression(currentSpriteIndex);
+  }
 
-    while (true)
+  inline void updateSprite()
+  {
+    if (millis() - lastSpriteChange > I2C_DEFAULT_SPRITE_DWELL_TIME)
     {
-      leftEyeMatrix.clear();
-
-      const uint8_t *currentSprite = getEyeExpression(currentSpriteIndex);
-
-      leftEyeMatrix.drawBitmap(0, 0, currentSprite, I2C_EYE_WIDTH, I2C_EYE_HEIGHT, LED_ON);
-
-      leftEyeMatrix.writeDisplay();
-
       currentSpriteIndex++;
       if (currentSpriteIndex > EYE_EXPRESSION_LAST)
       {
         currentSpriteIndex = EYE_EXPRESSION_FIRST;
       }
-
-      PT_SLEEP(pt, I2C_EYE_REFRESH_RATE_MILLI);
+      lastSpriteChange = millis();
     }
-
-    PT_END(pt);
   }
 
 public:
-  inline void setBrightness(uint8_t b)
+  Eye_Board_Manager() : I2C_Board_Manager_Base(&leftEyeMatrix, &rightEyeMatrix, &leftEyeMatrix, &rightEyeMatrix, I2C_EYE_WIDTH, I2C_EYE_HEIGHT)
   {
-    leftEyeMatrix.setBrightness(b);
   }
 
-  inline void setup_I2C_8x16()
+  inline void setup_I2C()
   {
-    leftEyeMatrix.begin(I2C_ADDRESS_LEFT_EYE_BOARD);
-    setBrightness(I2C_EYE_DEFAULT_BRIGHTNESS);
-    PT_INIT(&i2cState);
+    setup_I2C_Addresses(I2C_ADDRESS_LEFT_EYE_BOARD, I2C_ADDRESS_RIGHT_EYE_BOARD);
   }
 
-  inline void main_I2C_8x16()
+  inline void main_I2C()
   {
-    PT_SCHEDULE(i2c_Thread(&i2cState));
+    schedule_Main_Thread();
   }
 };

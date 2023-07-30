@@ -1,66 +1,49 @@
 /* 8x8 I2C Board */
 
-#include <Adafruit_LEDBackpack.h>
-#include <protothreads.h>
-#include "../I2C_Config.h"
+#include "../I2C_Board_Manager_Base.h"
 #include "Nose_Expressions.h"
 
-class Nose_Board_Manager
+class Nose_Board_Manager : I2C_Board_Manager_Base
 {
 private:
   // Control object for I2C 8x8 Nose Board
   Adafruit_8x8matrix leftNoseMatrix = Adafruit_8x8matrix();
   Adafruit_8x8matrix rightNoseMatrix = Adafruit_8x8matrix();
+  unsigned long lastSpriteChange = millis();
 
   // Current nose sprite
   int currentSpriteIndex = NOSE_EXPRESSION_FIRST;
 
-  // Protothread state for I2C Nose Board
-  pt i2cNoseState;
-
-  inline int i2c_Thread(struct pt *pt)
+  inline const uint8_t *getSprite()
   {
-    PT_BEGIN(pt);
+    return getNoseExpression(currentSpriteIndex);
+  }
 
-    while (true)
+  inline void updateSprite()
+  {
+    if (millis() - lastSpriteChange > I2C_DEFAULT_SPRITE_DWELL_TIME)
     {
-      leftNoseMatrix.clear();
-      rightNoseMatrix.clear();
-
-      const uint8_t *currentSprite = getNoseExpression(currentSpriteIndex);
-
-      leftNoseMatrix.drawBitmap(0, 0, currentSprite, I2C_NOSE_WIDTH, I2C_NOSE_HEIGHT, LED_ON);
-      rightNoseMatrix.drawBitmap(0, 0, currentSprite, I2C_NOSE_WIDTH, I2C_NOSE_HEIGHT, LED_ON);
-
-      leftNoseMatrix.writeDisplay();
-      rightNoseMatrix.writeDisplay();
-
       currentSpriteIndex++;
       if (currentSpriteIndex > NOSE_EXPRESSION_LAST)
       {
         currentSpriteIndex = NOSE_EXPRESSION_FIRST;
       }
-
-      PT_SLEEP(pt, I2C_NOSE_REFRESH_RATE_MILLI);
+      lastSpriteChange = millis();
     }
-
-    PT_END(pt);
   }
 
 public:
-  inline void setup_I2C_8x8()
+  Nose_Board_Manager() : I2C_Board_Manager_Base(&leftNoseMatrix, &rightNoseMatrix, &leftNoseMatrix, &rightNoseMatrix, I2C_NOSE_WIDTH, I2C_NOSE_HEIGHT)
   {
-    leftNoseMatrix.begin(I2C_ADDRESS_LEFT_NOSE_BOARD);
-    rightNoseMatrix.begin(I2C_ADDRESS_RIGHT_NOSE_BOARD);
-
-    leftNoseMatrix.setBrightness(I2C_NOSE_DEFAULT_BRIGHTNESS);
-    rightNoseMatrix.setBrightness(I2C_NOSE_DEFAULT_BRIGHTNESS);
-
-    PT_INIT(&i2cNoseState);
   }
 
-  inline void main_I2C_8x8()
+  inline void setup_I2C()
   {
-    PT_SCHEDULE(i2c_Thread(&i2cNoseState));
+    setup_I2C_Addresses(I2C_ADDRESS_LEFT_NOSE_BOARD, I2C_ADDRESS_RIGHT_NOSE_BOARD);
+  }
+
+  inline void main_I2C()
+  {
+    schedule_Main_Thread();
   }
 };

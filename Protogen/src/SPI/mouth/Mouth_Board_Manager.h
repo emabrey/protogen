@@ -29,11 +29,11 @@ private:
     {
       leftMouthMatrix.getGraphicObject()->setPoint(row, col, MD_MAX72XX::ON);
       row++;
-      if (row >= SPI_ROW_MAX)
+      if (row >= SPI_MOUTH_HEIGHT)
       {
         row = 0;
         col++;
-        if (col >= SPI_COL_MAX)
+        if (col >= SPI_MOUTH_WIDTH)
         {
           col = 0;
           leftMouthMatrix.displayClear();
@@ -49,8 +49,8 @@ private:
 public:
   inline void setup_SPI_32x4()
   {
-    leftMouthMatrix.begin(1);
-    leftMouthMatrix.setIntensity(0);
+    leftMouthMatrix.begin(SPI_ZONE_COUNT);
+    leftMouthMatrix.setIntensity(SPI_MOUTH_DEFAULT_BRIGHTNESS);
     leftMouthMatrix.displayClear();
     PT_INIT(&spiState);
   }
