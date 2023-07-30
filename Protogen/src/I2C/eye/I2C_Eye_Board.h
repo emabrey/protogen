@@ -18,7 +18,7 @@ static pt i2cEyeState;
 
 void setup_I2C_8x16()
 {
-  i2cEyeMatrix.begin(I2C_ADDRESS_EYE_BOARD);
+  i2cEyeMatrix.begin(I2C_ADDRESS_LEFT_EYE_BOARD);
   i2cEyeMatrix.setBrightness(5);
   PT_INIT(&i2cEyeState);
 }

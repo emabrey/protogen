@@ -8,7 +8,8 @@
 #define I2C_NOSE_REFRESH_RATE_MILLI 500ul
 
 // Control object for I2C 8x8 Nose Board
-static Adafruit_8x8matrix i2cNoseMatrix = Adafruit_8x8matrix();
+static Adafruit_8x8matrix i2cLeftNoseMatrix = Adafruit_8x8matrix();
+static Adafruit_8x8matrix i2cRightNoseMatrix = Adafruit_8x8matrix();
 
 // Current eye sprite
 static int currentNoseSpriteIndex = NOSE_EXPRESSION_FIRST;
@@ -18,8 +19,12 @@ static pt i2cNoseState;
 
 void setup_I2C_8x8()
 {
-  i2cNoseMatrix.begin(I2C_ADDRESS_NOSE_BOARD);
-  i2cNoseMatrix.setBrightness(5);
+  i2cLeftNoseMatrix.begin(I2C_ADDRESS_LEFT_NOSE_BOARD);
+  i2cRightNoseMatrix.begin(I2C_ADDRESS_RIGHT_NOSE_BOARD);
+
+  i2cLeftNoseMatrix.setBrightness(5);
+  i2cRightNoseMatrix.setBrightness(5);
+
   PT_INIT(&i2cNoseState);
 }
 
@@ -30,11 +35,17 @@ int i2c_Thread(struct pt *pt)
   // Loop forever
   for (;;)
   {
-    i2cNoseMatrix.clear();
+    i2cLeftNoseMatrix.clear();
+    i2cRightNoseMatrix.clear();
 
     const uint8_t *currentNoseSprite = getNoseExpression(currentNoseSpriteIndex);
-    i2cNoseMatrix.drawBitmap(0, 0, currentNoseSprite, 8, 8, LED_ON);
-    i2cNoseMatrix.writeDisplay();
+
+    i2cLeftNoseMatrix.drawBitmap(0, 0, currentNoseSprite, 8, 8, LED_ON);
+    i2cRightNoseMatrix.drawBitmap(0, 0, currentNoseSprite, 8, 8, LED_ON);
+
+    i2cLeftNoseMatrix.writeDisplay();
+    i2cRightNoseMatrix.writeDisplay();
+
     currentNoseSpriteIndex++;
     if (currentNoseSpriteIndex > NOSE_EXPRESSION_LAST)
     {
