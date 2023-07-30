@@ -9,3 +9,5 @@
 #define SPI_MOUTH_HEIGHT 8
 #define SPI_MOUTH_WIDTH 32
 #define SPI_ZONE_COUNT 1
+
+#define SPI_LED_ON 1

@@ -6,9 +6,3 @@
 
 #define I2C_DEFAULT_SPRITE_DWELL_TIME 250ul // How long sprites will persist before switching
 #define I2C_DEFAULT_BRIGHTNESS 5
-
-#define I2C_NOSE_WIDTH 8
-#define I2C_NOSE_HEIGHT 8
-
-#define I2C_EYE_WIDTH 8
-#define I2C_EYE_HEIGHT 16

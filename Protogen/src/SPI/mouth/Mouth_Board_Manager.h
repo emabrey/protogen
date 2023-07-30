@@ -6,11 +6,13 @@
 
   This must be done in the library copy of MD_Parola.h in order to have any effect.
 */
+
+#include <Adafruit_GFX.h>
 #include <MD_Parola.h>
 #include <protothreads.h>
 #include "../SPI_Config.h"
 
-class Mouth_Board_Manager
+class Mouth_Board_Manager : Adafruit_GFX
 {
 private:
   // Control object for 8x32 SPI Mouth board
@@ -19,26 +21,14 @@ private:
   // Protothread state for SPI board
   pt spiState;
 
-  int row = 0, col = 0;
-
   inline int spi_Thread(struct pt *pt)
   {
     PT_BEGIN(pt);
 
     while (true)
     {
-      leftMouthMatrix.getGraphicObject()->setPoint(row, col, MD_MAX72XX::ON);
-      row++;
-      if (row >= SPI_MOUTH_HEIGHT)
-      {
-        row = 0;
-        col++;
-        if (col >= SPI_MOUTH_WIDTH)
-        {
-          col = 0;
-          leftMouthMatrix.displayClear();
-        }
-      }
+      fillRect(0, 0, 8, 32, MD_MAX72XX::ON);
+      drawLine(0, 0, 8, 32, MD_MAX72XX::OFF);
 
       PT_SLEEP(pt, SPI_REFRESH_RATE_MILLI);
     }
@@ -47,6 +37,15 @@ private:
   }
 
 public:
+  Mouth_Board_Manager() : Adafruit_GFX(SPI_MOUTH_WIDTH, SPI_MOUTH_HEIGHT)
+  {
+  }
+
+  inline void drawPixel(int16_t x, int16_t y, uint16_t color)
+  {
+    leftMouthMatrix.getGraphicObject()->setPoint((uint8_t)(x & 0x00FF), (uint8_t)(y & 0x00FF), color != 0);
+  }
+
   inline void setup_SPI_32x4()
   {
     leftMouthMatrix.begin(SPI_ZONE_COUNT);

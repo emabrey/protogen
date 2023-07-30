@@ -34,6 +34,9 @@ protected:
         this->boardHeight = boardHeight;
     }
 
+    I2C_Board_Manager_Base(Adafruit_8x16matrix *left, Adafruit_8x16matrix *right) : I2C_Board_Manager_Base(left, right, left, right, 8, 16){};
+    I2C_Board_Manager_Base(Adafruit_8x8matrix *left, Adafruit_8x8matrix *right) : I2C_Board_Manager_Base(left, right, left, right, 8, 8){};
+
     inline void clear()
     {
         leftBoard->clear();

@@ -33,7 +33,7 @@ private:
   }
 
 public:
-  Eye_Board_Manager() : I2C_Board_Manager_Base(&leftEyeMatrix, &rightEyeMatrix, &leftEyeMatrix, &rightEyeMatrix, I2C_EYE_WIDTH, I2C_EYE_HEIGHT)
+  Eye_Board_Manager() : I2C_Board_Manager_Base(&leftEyeMatrix, &rightEyeMatrix)
   {
   }
 

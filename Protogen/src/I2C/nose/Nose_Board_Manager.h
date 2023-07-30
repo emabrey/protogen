@@ -3,6 +3,8 @@
 #include "../I2C_Board_Manager_Base.h"
 #include "Nose_Expressions.h"
 
+#define SPI_LED_ON 1
+
 class Nose_Board_Manager : I2C_Board_Manager_Base
 {
 private:
@@ -33,7 +35,7 @@ private:
   }
 
 public:
-  Nose_Board_Manager() : I2C_Board_Manager_Base(&leftNoseMatrix, &rightNoseMatrix, &leftNoseMatrix, &rightNoseMatrix, I2C_NOSE_WIDTH, I2C_NOSE_HEIGHT)
+  Nose_Board_Manager() : I2C_Board_Manager_Base(&leftNoseMatrix, &rightNoseMatrix)
   {
   }
 
