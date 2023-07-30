@@ -11,12 +11,12 @@ void setup()
 {
   noses.setup_I2C();
   eyes.setup_I2C();
-  mouths.setup_SPI_32x4();
+  mouths.setup_SPI();
 }
 
 void loop()
 {
   noses.main_I2C();
   eyes.main_I2C();
-  mouths.main_SPI_32x4();
+  mouths.main_SPI();
 }

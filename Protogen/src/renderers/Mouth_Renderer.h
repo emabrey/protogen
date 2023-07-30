@@ -1,26 +1,24 @@
 /* 32x4 SPI Board */
 
-/* Disable the following flags to free up flash memory within the local library copy
-   of `MD_Parola.h`:  ENA_MISC, ENA_WIPE, ENA_SCAN, ENA_SCR_DIA, ENA_OPNCLS,
-                      ENA_GROW, ENA_SPRITE
-
-  This must be done in the library copy of MD_Parola.h in order to have any effect.
-*/
-
-#include <Adafruit_GFX.h>
-#include <MD_Parola.h>
+#include "abstract/MD_MAX72XX_GFX.h"
+#include <MD_MAX72xx.h>
 #include <protothreads.h>
 
 #include "../SPI_Config.h"
 
-class Mouth_Renderer : Adafruit_GFX
+class Mouth_Renderer
 {
 private:
   // Control object for 8x32 SPI Mouth board
-  MD_Parola leftMouthMatrix = MD_Parola(SPI_HARDWARE_TYPE, SPI_CHIP_SEL_PIN, SPI_MAX_DEVICES);
+  MD_MAX72XX leftMouthMatrix = MD_MAX72XX(SPI_HARDWARE_TYPE, SPI_CHIP_SEL_PIN, SPI_MAX_DEVICES);
+
+  // Graphics object for 8x32 SPI Mouth board
+  MD_MAX72XX_GFX leftMouthGraphics = MD_MAX72XX_GFX(&leftMouthMatrix, SPI_MOUTH_WIDTH, SPI_MOUTH_HEIGHT);
 
   // Protothread state for SPI board
   pt spiState;
+
+  unsigned long lastRender = millis();
 
   inline int spi_Thread(struct pt *pt)
   {
@@ -28,34 +26,31 @@ private:
 
     while (true)
     {
-      fillRect(0, 0, 8, 32, MD_MAX72XX::ON);
-      drawLine(0, 0, 8, 32, MD_MAX72XX::OFF);
+      if (millis() - lastRender > SPI_DEFAULT_SPRITE_DWELL_TIME)
+      {
+        leftMouthMatrix.clear();
+        leftMouthMatrix.control(MD_MAX72XX::UPDATE, MD_MAX72XX::OFF);
+        leftMouthGraphics.fillRect(0, 0, 8, 32, MD_MAX72XX::ON);
+        leftMouthGraphics.drawLine(0, 0, 8, 32, MD_MAX72XX::OFF);
+        leftMouthMatrix.control(MD_MAX72XX::UPDATE, MD_MAX72XX::ON);
+        lastRender = millis();
+      }
 
-      PT_SLEEP(pt, SPI_REFRESH_RATE_MILLI);
+      PT_YIELD(pt);
     }
 
     PT_END(pt);
   }
 
 public:
-  Mouth_Renderer() : Adafruit_GFX(SPI_MOUTH_WIDTH, SPI_MOUTH_HEIGHT)
+  inline void setup_SPI()
   {
-  }
-
-  inline void drawPixel(int16_t x, int16_t y, uint16_t color)
-  {
-    leftMouthMatrix.getGraphicObject()->setPoint((uint8_t)(x & 0x00FF), (uint8_t)(y & 0x00FF), color != 0);
-  }
-
-  inline void setup_SPI_32x4()
-  {
-    leftMouthMatrix.begin(SPI_ZONE_COUNT);
-    leftMouthMatrix.setIntensity(SPI_MOUTH_DEFAULT_BRIGHTNESS);
-    leftMouthMatrix.displayClear();
+    leftMouthMatrix.begin();
+    leftMouthMatrix.control(MD_MAX72XX::INTENSITY, SPI_MOUTH_DEFAULT_BRIGHTNESS);
     PT_INIT(&spiState);
   }
 
-  inline void main_SPI_32x4()
+  inline void main_SPI()
   {
     PT_SCHEDULE(spi_Thread(&spiState));
   }
