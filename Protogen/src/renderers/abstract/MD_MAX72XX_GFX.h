@@ -6,6 +6,8 @@
 
 class MD_MAX72XX_GFX : public Adafruit_GFX
 {
+    using enum MD_MAX72XX::controlValue_t;
+
 protected:
     MD_MAX72XX *matrix;
 
@@ -17,6 +19,6 @@ public:
 
     void drawPixel(int16_t x, int16_t y, uint16_t color)
     {
-        matrix->setPoint(x, y, (color == 0) ? SPI_LED_OFF : SPI_LED_ON);
+        matrix->setPoint(x, y, (color == 0) ? OFF : ON);
     }
 };

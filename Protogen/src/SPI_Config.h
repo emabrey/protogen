@@ -9,6 +9,3 @@
 #define SPI_MOUTH_HEIGHT 8
 #define SPI_MOUTH_WIDTH 32
 #define SPI_ZONE_COUNT 1
-
-#define SPI_LED_ON MD_MAX72XX::controlValue_t::ON
-#define SPI_LED_OFF MD_MAX72XX::controlValue_t::OFF

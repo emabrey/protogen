@@ -8,6 +8,9 @@
 
 class Mouth_Renderer
 {
+  using enum MD_MAX72XX::controlRequest_t;
+  using enum MD_MAX72XX::controlValue_t;
+
 private:
   // Control object for 8x32 SPI Mouth board
   MD_MAX72XX leftMouthMatrix = MD_MAX72XX(SPI_HARDWARE_TYPE, SPI_CHIP_SEL_PIN, SPI_MAX_DEVICES);
@@ -29,10 +32,10 @@ private:
       if (millis() - lastRender > SPI_DEFAULT_SPRITE_DWELL_TIME)
       {
         leftMouthMatrix.clear();
-        leftMouthMatrix.control(MD_MAX72XX::UPDATE, MD_MAX72XX::OFF);
-        leftMouthGraphics.fillRect(0, 0, 8, 32, MD_MAX72XX::ON);
-        leftMouthGraphics.drawLine(0, 0, 8, 32, MD_MAX72XX::OFF);
-        leftMouthMatrix.control(MD_MAX72XX::UPDATE, MD_MAX72XX::ON);
+        leftMouthMatrix.control(UPDATE, OFF);
+        leftMouthGraphics.fillRect(0, 0, SPI_MOUTH_HEIGHT, SPI_MOUTH_WIDTH, ON);
+        leftMouthGraphics.drawLine(0, 0, SPI_MOUTH_HEIGHT, SPI_MOUTH_WIDTH, OFF);
+        leftMouthMatrix.control(UPDATE, ON);
         lastRender = millis();
       }
 
@@ -46,7 +49,7 @@ public:
   inline void setup_SPI()
   {
     leftMouthMatrix.begin();
-    leftMouthMatrix.control(MD_MAX72XX::INTENSITY, SPI_MOUTH_DEFAULT_BRIGHTNESS);
+    leftMouthMatrix.control(INTENSITY, SPI_MOUTH_DEFAULT_BRIGHTNESS);
     PT_INIT(&spiState);
   }
 
