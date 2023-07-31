@@ -1,0 +1,112 @@
+\doxysubsection{Nose\+\_\+\+Sprites.\+h}
+\hypertarget{_nose___sprites_8h_source}{}\label{_nose___sprites_8h_source}\index{Protogen/src/sprites/Nose\_Sprites.h@{Protogen/src/sprites/Nose\_Sprites.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*\ Bitmap\ Sprites\ for\ 8x8\ I2C\ Nose\ Matrix\ */}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#define\ NOSE\_EXPRESSION\_COUNT\ 17}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#define\ NOSE\_EXPRESSION\_FIRST\ 0}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#define\ NOSE\_EXPRESSION\_LAST\ 16}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ NOSE\_NORMAL\ 0}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ NOSE\_ANIM\_1\ 1}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ NOSE\_ANIM\_2\ 2}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ NOSE\_ANIM\_3\ 3}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ NOSE\_ANIM\_4\ 4}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ NOSE\_HEART\_BIG\ 5}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ NOSE\_HEART\_SMALL\ 6}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ NOSE\_ANGRY\_LEFT\ 7}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ NOSE\_ANGRY\_RIGHT\ 8}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ NOSE\_CAROTS\ 9}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ NOSE\_GLITCHED\ 10}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ NOSE\_SURPRISED\ 11}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ NOSE\_SAD\_LEFT\ 12}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ NOSE\_SAD\_RIGHT\ 13}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ NOSE\_HEART\_BIG\_FLIPPED\ 14}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ NOSE\_HEART\_SMALL\_FLIPPED\ 15}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ NOSE\_OVERHEAT\ 16}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint8\_t\ PROGMEM}
+\DoxyCodeLine{00025\ \ \ \ \ nose\_normal[]\ =\ \{B00111100,\ B01111110,\ B01111110,\ B01111110,\ B01111110,\ B01111110,\ B01111110,\ B00111100\},}
+\DoxyCodeLine{00026\ \ \ \ \ nose\_anim1[]\ =\ \{B00111100,\ B01111110,\ B01111110,\ B01111110,\ B01111110,\ B01111110,\ B00000000,\ B00000000\},}
+\DoxyCodeLine{00027\ \ \ \ \ nose\_anim2[]\ =\ \{B00111100,\ B01111110,\ B01111110,\ B01111110,\ B00000000,\ B00000000,\ B00000000,\ B00000000\},}
+\DoxyCodeLine{00028\ \ \ \ \ nose\_anim3[]\ =\ \{B00111100,\ B01111110,\ B00000000,\ B00000000,\ B00000000,\ B00000000,\ B00000000,\ B00000000\},}
+\DoxyCodeLine{00029\ \ \ \ \ nose\_anim4[]\ =\ \{B00111100,\ B00000000,\ B00000000,\ B00000000,\ B00000000,\ B00000000,\ B00000000,\ B00000000\},}
+\DoxyCodeLine{00030\ \ \ \ \ nose\_heart\_big[]\ =\ \{B00000000,\ B00010000,\ B00111000,\ B01111100,\ B11111110,\ B11111110,\ B01101100,\ B00000000\},}
+\DoxyCodeLine{00031\ \ \ \ \ nose\_heart\_small[]\ =\ \{B00000000,\ B00000000,\ B00010000,\ B00111000,\ B01111100,\ B01101100,\ B00000000,\ B00000000\},}
+\DoxyCodeLine{00032\ \ \ \ \ nose\_angry1[]\ =\ \{B00111100,\ B01111110,\ B01111110,\ B01111100,\ B01111001,\ B01110011,\ B01100110,\ B00001100\},}
+\DoxyCodeLine{00033\ \ \ \ \ nose\_angry2[]\ =\ \{B00111100,\ B01111110,\ B01111110,\ B00111110,\ B10011110,\ B11001110,\ B01100110,\ B00110000\},}
+\DoxyCodeLine{00034\ \ \ \ \ nose\_carots[]\ =\ \{B00000000,\ B00000000,\ B00000000,\ B01000010,\ B01100110,\ B00111100,\ B00011000,\ B00000000\},}
+\DoxyCodeLine{00035\ \ \ \ \ nose\_glitched[]\ =\ \{B00111110,\ B00111110,\ B00111110,\ B00111110,\ B00111110,\ B00111000,\ B00111000,\ B00111000\},}
+\DoxyCodeLine{00036\ \ \ \ \ nose\_surprised[]\ =\ \{B00111100,\ B01000010,\ B10000001,\ B10000001,\ B10000001,\ B10000001,\ B01000010,\ B00111100\},}
+\DoxyCodeLine{00037\ \ \ \ \ nose\_sad1[]\ =\ \{B00111100,\ B01111110,\ B01111110,\ B00111110,\ B00011110,\ B00001110,\ B00000110,\ B00000000\},}
+\DoxyCodeLine{00038\ \ \ \ \ nose\_sad2[]\ =\ \{B00111100,\ B01111110,\ B01111110,\ B01111100,\ B01111000,\ B01110000,\ B01100000,\ B00000000\},}
+\DoxyCodeLine{00039\ \ \ \ \ nose\_heart\_big\_alt[]\ =\ \{B00000000,\ B00001000,\ B00011100,\ B00111110,\ B01111111,\ B01111111,\ B00110110,\ B00000000\},}
+\DoxyCodeLine{00040\ \ \ \ \ nose\_heart\_small\_alt[]\ =\ \{B00000000,\ B00000000,\ B00001000,\ B00011100,\ B00111110,\ B00110110,\ B00000000,\ B00000000\},}
+\DoxyCodeLine{00041\ \ \ \ \ nose\_overheat[]\ =\ \{B11111111,\ B00100100,\ B00010010,\ B00100100,\ B01001000,\ B00100100,\ B00010010,\ B00100100\},}
+\DoxyCodeLine{00042\ \ \ \ \ nose\_error[]\ =\ \{B01111110,\ B10111101,\ B11011011,\ B11100111,\ B11100111,\ B11011011,\ B10111101,\ B01111110\};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint8\_t\ *getNoseSprite(uint8\_t\ index)}
+\DoxyCodeLine{00045\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordflow}{switch}\ (index)}
+\DoxyCodeLine{00047\ \ \ \ \ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordflow}{case}\ NOSE\_NORMAL:}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ nose\_normal;}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordflow}{case}\ NOSE\_ANIM\_1:}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ nose\_anim1;}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordflow}{case}\ NOSE\_ANIM\_2:}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ nose\_anim2;}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordflow}{case}\ NOSE\_ANIM\_3:}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ nose\_anim3;}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordflow}{case}\ NOSE\_ANIM\_4:}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ nose\_anim4;}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordflow}{case}\ NOSE\_HEART\_BIG:}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ nose\_heart\_big;}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordflow}{case}\ NOSE\_HEART\_SMALL:}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ nose\_heart\_small;}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordflow}{case}\ NOSE\_ANGRY\_LEFT:}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ nose\_angry1;}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordflow}{case}\ NOSE\_ANGRY\_RIGHT:}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ nose\_angry2;}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordflow}{case}\ NOSE\_CAROTS:}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ nose\_carots;}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordflow}{case}\ NOSE\_GLITCHED:}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ nose\_glitched;}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordflow}{case}\ NOSE\_SURPRISED:}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ nose\_surprised;}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordflow}{case}\ NOSE\_SAD\_LEFT:}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ nose\_sad1;}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordflow}{case}\ NOSE\_SAD\_RIGHT:}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ nose\_sad2;}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordflow}{case}\ NOSE\_HEART\_BIG\_FLIPPED:}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ nose\_heart\_big\_alt;}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordflow}{case}\ NOSE\_HEART\_SMALL\_FLIPPED:}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ nose\_heart\_small\_alt;}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordflow}{case}\ NOSE\_OVERHEAT:}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ nose\_overheat;}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ This\ returns\ a\ special\ bitmap\ to\ indicate\ that\ somehow\ our\ code}}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ has\ requested\ an\ invalid\ expression.\ The\ expression\ should\ look}}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ like\ an\ inverted\ X}}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ nose\_error;}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00105\ \ \ \ \ \}}
+\DoxyCodeLine{00106\ \}}
+
+\end{DoxyCode}

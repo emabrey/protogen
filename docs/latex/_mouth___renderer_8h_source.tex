@@ -1,0 +1,63 @@
+\doxysubsection{Mouth\+\_\+\+Renderer.\+h}
+\hypertarget{_mouth___renderer_8h_source}{}\label{_mouth___renderer_8h_source}\index{Protogen/src/renderers/Mouth\_Renderer.h@{Protogen/src/renderers/Mouth\_Renderer.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*\ 32x4\ SPI\ Board\ */}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}abstract/MD\_MAX72XX\_GFX.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <MD\_MAX72xx.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <protothreads.h>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}../SPI\_Config.h"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_mouth___renderer}{Mouth\_Renderer}}}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ \ \ \textcolor{keyword}{using\ }enum\ MD\_MAX72XX::controlRequest\_t;}
+\DoxyCodeLine{00012\ \ \ \textcolor{keyword}{using\ }enum\ MD\_MAX72XX::controlValue\_t;}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00016\ \ \ MD\_MAX72XX\ leftMouthMatrix\ =\ MD\_MAX72XX(SPI\_HARDWARE\_TYPE,\ SPI\_CHIP\_SEL\_PIN,\ SPI\_MAX\_DEVICES);}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00019\ \ \ \mbox{\hyperlink{class_m_d___m_a_x72_x_x___g_f_x}{MD\_MAX72XX\_GFX}}\ leftMouthGraphics\ =\ \mbox{\hyperlink{class_m_d___m_a_x72_x_x___g_f_x}{MD\_MAX72XX\_GFX}}(\&leftMouthMatrix,\ SPI\_MOUTH\_WIDTH,\ SPI\_MOUTH\_HEIGHT);}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00022\ \ \ pt\ spiState;}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00025\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ lastRender\ =\ millis();}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00033\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ spi\_Thread(\textcolor{keyword}{struct}\ pt\ *pt)}
+\DoxyCodeLine{00034\ \ \ \{}
+\DoxyCodeLine{00035\ \ \ \ \ PT\_BEGIN(pt);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{true})}
+\DoxyCodeLine{00038\ \ \ \ \ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (millis()\ -\/\ lastRender\ >\ SPI\_DEFAULT\_SPRITE\_DWELL\_TIME)}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ leftMouthMatrix.clear();}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ leftMouthMatrix.control(UPDATE,\ OFF);}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ leftMouthGraphics.fillRect(0,\ 0,\ SPI\_MOUTH\_HEIGHT,\ SPI\_MOUTH\_WIDTH,\ ON);}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ leftMouthGraphics.drawLine(0,\ 0,\ SPI\_MOUTH\_HEIGHT,\ SPI\_MOUTH\_WIDTH,\ OFF);}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ leftMouthMatrix.control(UPDATE,\ ON);}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ lastRender\ =\ millis();}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ PT\_YIELD(pt);}
+\DoxyCodeLine{00050\ \ \ \ \ \}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ PT\_END(pt);}
+\DoxyCodeLine{00053\ \ \ \}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00060\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mouth___renderer_a4fbfd459554d54dd2e8284b9cabe7e8e}{setup\_SPI}}()}
+\DoxyCodeLine{00061\ \ \ \{}
+\DoxyCodeLine{00062\ \ \ \ \ leftMouthMatrix.begin();}
+\DoxyCodeLine{00063\ \ \ \ \ leftMouthMatrix.control(INTENSITY,\ SPI\_MOUTH\_DEFAULT\_BRIGHTNESS);}
+\DoxyCodeLine{00064\ \ \ \ \ PT\_INIT(\&spiState);}
+\DoxyCodeLine{00065\ \ \ \}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00071\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mouth___renderer_aea8f236cc075679b74043b8cc8838850}{main\_SPI}}()}
+\DoxyCodeLine{00072\ \ \ \{}
+\DoxyCodeLine{00073\ \ \ \ \ PT\_SCHEDULE(spi\_Thread(\&spiState));}
+\DoxyCodeLine{00074\ \ \ \}}
+\DoxyCodeLine{00075\ \};}
+
+\end{DoxyCode}

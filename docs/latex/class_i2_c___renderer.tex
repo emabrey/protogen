@@ -1,0 +1,82 @@
+\doxysubsection{I2\+C\+\_\+\+Renderer Class Reference}
+\hypertarget{class_i2_c___renderer}{}\label{class_i2_c___renderer}\index{I2C\_Renderer@{I2C\_Renderer}}
+Inheritance diagram for I2\+C\+\_\+\+Renderer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_i2_c___renderer}
+\end{center}
+\end{figure}
+\doxysubsubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_i2_c___renderer_ac4f92311de7a67754d11f4a9a252c29f}\label{class_i2_c___renderer_ac4f92311de7a67754d11f4a9a252c29f} 
+void {\bfseries schedule\+\_\+\+Main\+\_\+\+Thread} ()
+\end{DoxyCompactItemize}
+\doxysubsubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_i2_c___renderer_a964bfb5aa54002a2d3b3587c7d0ae9a7}\label{class_i2_c___renderer_a964bfb5aa54002a2d3b3587c7d0ae9a7} 
+virtual const uint8\+\_\+t \texorpdfstring{$\ast$}{*} {\bfseries get\+Sprite} ()
+\item 
+\Hypertarget{class_i2_c___renderer_adf9e9591e10fd800e0a55642c0332668}\label{class_i2_c___renderer_adf9e9591e10fd800e0a55642c0332668} 
+virtual void {\bfseries update\+Sprite} ()
+\item 
+\Hypertarget{class_i2_c___renderer_a7ba7893252ddbfaa80453c2162e67e6d}\label{class_i2_c___renderer_a7ba7893252ddbfaa80453c2162e67e6d} 
+{\bfseries I2\+C\+\_\+\+Renderer} (Adafruit\+\_\+\+LEDBackpack \texorpdfstring{$\ast$}{*}left\+Board, Adafruit\+\_\+\+LEDBackpack \texorpdfstring{$\ast$}{*}right\+Board, Adafruit\+\_\+\+GFX \texorpdfstring{$\ast$}{*}left\+Graphics, Adafruit\+\_\+\+GFX \texorpdfstring{$\ast$}{*}right\+Graphics, const uint8\+\_\+t board\+Width, const uint8\+\_\+t board\+Height)
+\item 
+\Hypertarget{class_i2_c___renderer_a39553209e50437f8da986dcbe190a8fa}\label{class_i2_c___renderer_a39553209e50437f8da986dcbe190a8fa} 
+{\bfseries I2\+C\+\_\+\+Renderer} (Adafruit\+\_\+8x16matrix \texorpdfstring{$\ast$}{*}left, Adafruit\+\_\+8x16matrix \texorpdfstring{$\ast$}{*}right)
+\item 
+\Hypertarget{class_i2_c___renderer_a9ecc438db25a273e25b9beae126cf5ce}\label{class_i2_c___renderer_a9ecc438db25a273e25b9beae126cf5ce} 
+{\bfseries I2\+C\+\_\+\+Renderer} (Adafruit\+\_\+8x8matrix \texorpdfstring{$\ast$}{*}left, Adafruit\+\_\+8x8matrix \texorpdfstring{$\ast$}{*}right)
+\item 
+\Hypertarget{class_i2_c___renderer_a83e17e3e8c558e2ccf142053cd6c5af6}\label{class_i2_c___renderer_a83e17e3e8c558e2ccf142053cd6c5af6} 
+void {\bfseries clear} ()
+\item 
+\Hypertarget{class_i2_c___renderer_ad2735526f25d33f9869e289b2fa6b8f5}\label{class_i2_c___renderer_ad2735526f25d33f9869e289b2fa6b8f5} 
+void {\bfseries draw\+Mirrored\+Sprite} (const uint8\+\_\+t \texorpdfstring{$\ast$}{*}sprite, const uint8\+\_\+t width, const uint8\+\_\+t height)
+\item 
+\Hypertarget{class_i2_c___renderer_a078e730116b26ec5e5394460299e61a7}\label{class_i2_c___renderer_a078e730116b26ec5e5394460299e61a7} 
+void {\bfseries flush} ()
+\item 
+\Hypertarget{class_i2_c___renderer_a083866b8ba991742527061763f0e2e69}\label{class_i2_c___renderer_a083866b8ba991742527061763f0e2e69} 
+void {\bfseries set\+Brightness} (const uint8\+\_\+t b)
+\item 
+\Hypertarget{class_i2_c___renderer_acc05d185848fe908d65df7e394523b63}\label{class_i2_c___renderer_acc05d185848fe908d65df7e394523b63} 
+virtual int {\bfseries i2c\+\_\+\+Thread} (struct pt \texorpdfstring{$\ast$}{*}pt)
+\item 
+\Hypertarget{class_i2_c___renderer_aa984c8bdb6c415ca9c4a6c9c05447964}\label{class_i2_c___renderer_aa984c8bdb6c415ca9c4a6c9c05447964} 
+void {\bfseries setup\+\_\+\+I2\+C\+\_\+\+Addresses} (const uint8\+\_\+t left\+I2\+CAddress, const uint8\+\_\+t right\+I2\+CAddress)
+\end{DoxyCompactItemize}
+\doxysubsubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_i2_c___renderer_a46f5bc0c411cffd41133bbf83c62f4a9}\label{class_i2_c___renderer_a46f5bc0c411cffd41133bbf83c62f4a9} 
+Adafruit\+\_\+\+LEDBackpack \texorpdfstring{$\ast$}{*} {\bfseries left\+Board}
+\item 
+\Hypertarget{class_i2_c___renderer_a96bea58a208f90a92b607bd772c82c67}\label{class_i2_c___renderer_a96bea58a208f90a92b607bd772c82c67} 
+Adafruit\+\_\+\+LEDBackpack \texorpdfstring{$\ast$}{*} {\bfseries right\+Board}
+\item 
+\Hypertarget{class_i2_c___renderer_a96f566dcf430ba0780cb891d957e06f1}\label{class_i2_c___renderer_a96f566dcf430ba0780cb891d957e06f1} 
+Adafruit\+\_\+\+GFX \texorpdfstring{$\ast$}{*} {\bfseries left\+Graphics}
+\item 
+\Hypertarget{class_i2_c___renderer_ae4a414bc1a34b05b043313e6be898b0e}\label{class_i2_c___renderer_ae4a414bc1a34b05b043313e6be898b0e} 
+Adafruit\+\_\+\+GFX \texorpdfstring{$\ast$}{*} {\bfseries right\+Graphics}
+\item 
+\Hypertarget{class_i2_c___renderer_a295384510dc36db577a60c879bb015ef}\label{class_i2_c___renderer_a295384510dc36db577a60c879bb015ef} 
+uint8\+\_\+t {\bfseries brightness} = I2\+C\+\_\+\+DEFAULT\+\_\+\+BRIGHTNESS
+\item 
+\Hypertarget{class_i2_c___renderer_a96ccc2b65566da98f1f499446f9fd39f}\label{class_i2_c___renderer_a96ccc2b65566da98f1f499446f9fd39f} 
+uint8\+\_\+t {\bfseries board\+Width}
+\item 
+\Hypertarget{class_i2_c___renderer_a7595e34b07cd971d9a21bb198f9a80ac}\label{class_i2_c___renderer_a7595e34b07cd971d9a21bb198f9a80ac} 
+uint8\+\_\+t {\bfseries board\+Height}
+\item 
+\Hypertarget{class_i2_c___renderer_a742f136558729080b13f5f118543fb69}\label{class_i2_c___renderer_a742f136558729080b13f5f118543fb69} 
+pt {\bfseries i2c\+State}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Protogen/src/renderers/abstract/I2\+C\+\_\+\+Renderer.\+h\end{DoxyCompactItemize}

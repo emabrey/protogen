@@ -1,0 +1,30 @@
+\doxysubsection{MD\+\_\+\+MAX72\+XX\+\_\+\+GFX.\+h}
+\hypertarget{_m_d___m_a_x72_x_x___g_f_x_8h_source}{}\label{_m_d___m_a_x72_x_x___g_f_x_8h_source}\index{Protogen/src/renderers/abstract/MD\_MAX72XX\_GFX.h@{Protogen/src/renderers/abstract/MD\_MAX72XX\_GFX.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <Adafruit\_GFX.h>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <MD\_MAX72xx.h>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <protothreads.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}../../SPI\_Config.h"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_d___m_a_x72_x_x___g_f_x}{MD\_MAX72XX\_GFX}}\ :\ \textcolor{keyword}{public}\ Adafruit\_GFX}
+\DoxyCodeLine{00008\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{using\ }enum\ MD\_MAX72XX::controlValue\_t;}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00012\ \ \ \ \ MD\_MAX72XX\ *matrix;}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{class_m_d___m_a_x72_x_x___g_f_x}{MD\_MAX72XX\_GFX}}(MD\_MAX72XX\ *matrix,\ uint16\_t\ width,\ uint16\_t\ height)\ :\ Adafruit\_GFX(width,\ height)}
+\DoxyCodeLine{00016\ \ \ \ \ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ this-\/>matrix\ =\ matrix;}
+\DoxyCodeLine{00018\ \ \ \ \ \}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ drawPixel(int16\_t\ x,\ int16\_t\ y,\ uint16\_t\ color)}
+\DoxyCodeLine{00021\ \ \ \ \ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ matrix-\/>setPoint(x,\ y,\ (color\ ==\ 0)\ ?\ OFF\ :\ ON);}
+\DoxyCodeLine{00023\ \ \ \ \ \}}
+\DoxyCodeLine{00024\ \};}
+
+\end{DoxyCode}

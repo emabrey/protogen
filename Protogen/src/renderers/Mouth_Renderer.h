@@ -12,17 +12,24 @@ class Mouth_Renderer
   using enum MD_MAX72XX::controlValue_t;
 
 private:
-  // Control object for 8x32 SPI Mouth board
+  /// @brief Control object for left side 8x32 SPI Mouth board
   MD_MAX72XX leftMouthMatrix = MD_MAX72XX(SPI_HARDWARE_TYPE, SPI_CHIP_SEL_PIN, SPI_MAX_DEVICES);
 
-  // Graphics object for 8x32 SPI Mouth board
+  /// @brief Graphics object for left side 8x32 SPI Mouth board
   MD_MAX72XX_GFX leftMouthGraphics = MD_MAX72XX_GFX(&leftMouthMatrix, SPI_MOUTH_WIDTH, SPI_MOUTH_HEIGHT);
 
-  // Protothread state for SPI board
+  /// @brief Protothread state for SPI boards
   pt spiState;
 
+  /// @brief Time since last change in mouth boards' displays
   unsigned long lastRender = millis();
 
+  /**
+   * @brief Implementation of the thread runtime for the SPI based mouth boards.
+   *
+   * @param pt The Protothread state struct
+   * @return int The result of the pt execution; can be PT_ENDED if the thread terminated.
+   */
   inline int spi_Thread(struct pt *pt)
   {
     PT_BEGIN(pt);
@@ -46,6 +53,10 @@ private:
   }
 
 public:
+  /**
+   * @brief Setup the SPI control objects; should be called from arduino setup()
+   * @sa MouthRenderer::leftMouthMatrix
+   */
   inline void setup_SPI()
   {
     leftMouthMatrix.begin();
@@ -53,6 +64,10 @@ public:
     PT_INIT(&spiState);
   }
 
+  /**
+   * @brief Schedule the SPI main thread to be run
+   * @sa spi_thread(struct pt)
+   */
   inline void main_SPI()
   {
     PT_SCHEDULE(spi_Thread(&spiState));
