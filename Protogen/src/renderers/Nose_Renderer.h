@@ -8,29 +8,43 @@
 class Nose_Renderer : I2C_Renderer
 {
 private:
-  // Control object for I2C 8x8 Nose Board
+  /// @brief Control object for the left I2C 8x8 Nose Board
   Adafruit_8x8matrix leftNoseMatrix = Adafruit_8x8matrix();
-  Adafruit_8x8matrix rightNoseMatrix = Adafruit_8x8matrix();
-  unsigned long lastSpriteChange = millis();
 
-  // Current nose sprite
+  /// @brief Control object for the right I2C 8x8 Nose Board
+  Adafruit_8x8matrix rightNoseMatrix = Adafruit_8x8matrix();
+
+  /// @brief Time, in milliseconds, at which the last sprite was renderered to the nose boards
+  unsigned long lastRender = millis();
+
+  /// @brief Current sprite for the nose board
   int currentSpriteIndex = NOSE_EXPRESSION_FIRST;
 
+  /**
+   * @brief Return the current sprite from PROGMEM based upon the current sprite index
+   * @sa Nose_Renderer::currentSpriteIndex
+   */
   inline const uint8_t *getSprite()
   {
     return getNoseSprite(currentSpriteIndex);
   }
 
+  /**
+   * @brief Update the sprite periodically, based upon the value in I2C_DEFAULT_SPRITE_DWELL_TIME
+   * @sa Nose_Renderer::lastRender
+   * @sa Nose_Renderer::currentSpriteIndex
+   * @sa I2C_Config.h
+   */
   inline void updateSprite()
   {
-    if (millis() - lastSpriteChange > I2C_DEFAULT_SPRITE_DWELL_TIME)
+    if (millis() - lastRender > I2C_DEFAULT_SPRITE_DWELL_TIME)
     {
       currentSpriteIndex++;
       if (currentSpriteIndex > NOSE_EXPRESSION_LAST)
       {
         currentSpriteIndex = NOSE_EXPRESSION_FIRST;
       }
-      lastSpriteChange = millis();
+      lastRender = millis();
     }
   }
 

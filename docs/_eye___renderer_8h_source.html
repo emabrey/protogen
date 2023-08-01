@@ -104,7 +104,7 @@ $(document).ready(function(){initNavTree('_eye___renderer_8h_source.html',''); i
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>  <span class="comment">// Control object for I2C 8x16 Eye Board</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>  Adafruit_8x16matrix leftEyeMatrix = Adafruit_8x16matrix();</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>  Adafruit_8x16matrix rightEyeMatrix = Adafruit_8x16matrix();</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>  <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> lastSpriteChange = millis();</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>  <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> lastRender = millis();</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>  <span class="comment">// Current eye sprite</span></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>  <span class="keywordtype">int</span> currentSpriteIndex = EYE_EXPRESSION_FIRST;</div>
@@ -114,35 +114,38 @@ $(document).ready(function(){initNavTree('_eye___renderer_8h_source.html',''); i
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordflow">return</span> getEyeSprite(currentSpriteIndex);</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>  }</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>  <span class="keyword">inline</span> <span class="keywordtype">void</span> updateSprite()</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>  {</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordflow">if</span> (millis() - lastSpriteChange &gt; I2C_DEFAULT_SPRITE_DWELL_TIME)</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    {</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>      currentSpriteIndex++;</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>      <span class="keywordflow">if</span> (currentSpriteIndex &gt; EYE_EXPRESSION_LAST)</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>      {</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        currentSpriteIndex = EYE_EXPRESSION_FIRST;</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>      }</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>      lastSpriteChange = millis();</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    }</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>  }</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>  <a class="code hl_class" href="class_eye___renderer.html">Eye_Renderer</a>() : <a class="code hl_class" href="class_i2_c___renderer.html">I2C_Renderer</a>(&amp;leftEyeMatrix, &amp;rightEyeMatrix)</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>  {</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>  }</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>  <span class="keyword">inline</span> <span class="keywordtype">void</span> setup_I2C()</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="class_eye___renderer.html#a89b9f6ec49820e9194a7eba899748e76">   26</a></span>  <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_eye___renderer.html#a89b9f6ec49820e9194a7eba899748e76">updateSprite</a>()</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>  {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordflow">if</span> (millis() - lastRender &gt; I2C_DEFAULT_SPRITE_DWELL_TIME)</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    {</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>      currentSpriteIndex++;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>      <span class="keywordflow">if</span> (currentSpriteIndex &gt; EYE_EXPRESSION_LAST)</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>      {</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        currentSpriteIndex = EYE_EXPRESSION_FIRST;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>      }</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>      lastRender = millis();</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    }</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>  }</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>  <a class="code hl_class" href="class_eye___renderer.html">Eye_Renderer</a>() : <a class="code hl_class" href="class_i2_c___renderer.html">I2C_Renderer</a>(&amp;leftEyeMatrix, &amp;rightEyeMatrix)</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>  {</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    setup_I2C_Addresses(I2C_ADDRESS_LEFT_EYE_BOARD, I2C_ADDRESS_RIGHT_EYE_BOARD);</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>  }</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>  <span class="keyword">inline</span> <span class="keywordtype">void</span> main_I2C()</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>  {</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    schedule_Main_Thread();</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>  }</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>};</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>  }</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="class_eye___renderer.html#ad1a8b0485eb40113815f116a77c32e58">   49</a></span>  <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_eye___renderer.html#ad1a8b0485eb40113815f116a77c32e58">setup_I2C</a>()</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>  {</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    setup_I2C_Addresses(I2C_ADDRESS_LEFT_EYE_BOARD, I2C_ADDRESS_RIGHT_EYE_BOARD);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>  }</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="class_eye___renderer.html#af5fc9b8f01885f2e6522447cf85ccec2">   58</a></span>  <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_eye___renderer.html#af5fc9b8f01885f2e6522447cf85ccec2">main_I2C</a>()</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>  {</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    schedule_Main_Thread();</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>  }</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>};</div>
 <div class="ttc" id="aclass_eye___renderer_html"><div class="ttname"><a href="class_eye___renderer.html">Eye_Renderer</a></div><div class="ttdef"><b>Definition</b> Eye_Renderer.h:7</div></div>
+<div class="ttc" id="aclass_eye___renderer_html_a89b9f6ec49820e9194a7eba899748e76"><div class="ttname"><a href="class_eye___renderer.html#a89b9f6ec49820e9194a7eba899748e76">Eye_Renderer::updateSprite</a></div><div class="ttdeci">void updateSprite()</div><div class="ttdoc">Update the sprite periodically, based upon the value in I2C_DEFAULT_SPRITE_DWELL_TIME.</div><div class="ttdef"><b>Definition</b> Eye_Renderer.h:26</div></div>
+<div class="ttc" id="aclass_eye___renderer_html_ad1a8b0485eb40113815f116a77c32e58"><div class="ttname"><a href="class_eye___renderer.html#ad1a8b0485eb40113815f116a77c32e58">Eye_Renderer::setup_I2C</a></div><div class="ttdeci">void setup_I2C()</div><div class="ttdoc">Setup the I2C control objects; should be called from arduino setup()</div><div class="ttdef"><b>Definition</b> Eye_Renderer.h:49</div></div>
+<div class="ttc" id="aclass_eye___renderer_html_af5fc9b8f01885f2e6522447cf85ccec2"><div class="ttname"><a href="class_eye___renderer.html#af5fc9b8f01885f2e6522447cf85ccec2">Eye_Renderer::main_I2C</a></div><div class="ttdeci">void main_I2C()</div><div class="ttdoc">Schedule the I2C main thread to be run.</div><div class="ttdef"><b>Definition</b> Eye_Renderer.h:58</div></div>
 <div class="ttc" id="aclass_i2_c___renderer_html"><div class="ttname"><a href="class_i2_c___renderer.html">I2C_Renderer</a></div><div class="ttdef"><b>Definition</b> I2C_Renderer.h:9</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -150,7 +153,7 @@ $(document).ready(function(){initNavTree('_eye___renderer_8h_source.html',''); i
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_3401fbbfea8313d75a4ac4a4e7cca1cc.html">Protogen</a></li><li class="navelem"><a class="el" href="dir_116c1751eb8c32d56c7ca9df6dbab3f4.html">src</a></li><li class="navelem"><a class="el" href="dir_ed07ffc46c92dfe0c39216ccd973fd95.html">renderers</a></li><li class="navelem"><b>Eye_Renderer.h</b></li>
-    <li class="footer">Generated on Mon Jul 31 2023 10:41:07 for Protogen by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+    <li class="footer">Generated on Mon Jul 31 2023 23:21:48 for Protogen by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
   </ul>
 </div>
 </body>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['main_5fspi_0',['main_SPI',['../class_mouth___renderer.html#aea8f236cc075679b74043b8cc8838850',1,'Mouth_Renderer']]]
+  ['getsprite_0',['getSprite',['../class_nose___renderer.html#a740c104dbf24d6f5d8fb488627907d89',1,'Nose_Renderer']]]
 ];

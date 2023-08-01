@@ -66,7 +66,7 @@ public:
 
   /**
    * @brief Schedule the SPI main thread to be run
-   * @sa spi_thread(struct pt)
+   * @sa MouthRenderer::spi_thread(struct pt)
    */
   inline void main_SPI()
   {
