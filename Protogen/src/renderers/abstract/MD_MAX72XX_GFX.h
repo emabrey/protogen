@@ -3,22 +3,34 @@
 #include <MD_MAX72xx.h>
 #include <protothreads.h>
 #include "../../SPI_Config.h"
-
+/**
+ * @brief Adapter to allow MD_MAX72XX board to be drawn using Adafruit_GFX API
+ */
 class MD_MAX72XX_GFX : public Adafruit_GFX
 {
-    using enum MD_MAX72XX::controlValue_t;
-
 protected:
     MD_MAX72XX *matrix;
 
 public:
-    MD_MAX72XX_GFX(MD_MAX72XX *matrix, uint16_t width, uint16_t height) : Adafruit_GFX(width, height)
+    /**
+     * @brief Construct a MD_MAX72XX_GFX object that wraps around the given MD_MAX72XX instance
+     *
+     * @param matrix The MD_MAX72XX instance that this Adafruit_GFX implementation should draw to
+     */
+    MD_MAX72XX_GFX(MD_MAX72XX *matrix) : Adafruit_GFX(matrix->getColumnCount(), ROW_SIZE)
     {
         this->matrix = matrix;
     }
 
+    /**
+     * @brief Set a pixel on or off on the underlying MD_MAX72XX display.
+     *
+     * @param x The horizontal poisition of the pixel to change
+     * @param y The vertical poisition of the pixel to change
+     * @param color If zero, turn the pixel off; otherwise turn pixel to on state
+     */
     void drawPixel(int16_t x, int16_t y, uint16_t color)
     {
-        matrix->setPoint(x, y, (color == 0) ? OFF : ON);
+        matrix->setPoint((uint8_t)x, y, (color == 0) ? MD_MAX72XX::OFF : MD_MAX72XX::ON);
     }
 };

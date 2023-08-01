@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['getsprite_0',['getSprite',['../class_nose___renderer.html#a740c104dbf24d6f5d8fb488627907d89',1,'Nose_Renderer']]]
+  ['clear_0',['clear',['../class_i2_c___renderer.html#a83e17e3e8c558e2ccf142053cd6c5af6',1,'I2C_Renderer']]]
 ];

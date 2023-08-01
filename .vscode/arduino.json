@@ -2,5 +2,11 @@
     "board": "arduino:avr:nano",
     "port": "COM4",
     "sketch": "Protogen\\Protogen.ino",
-    "configuration": "cpu=atmega328"
+    "configuration": "cpu=atmega328",
+    "buildPreferences": [
+        [
+            "compiler.cpp.extra_flags",
+            "-Wundef -Wconversion "
+        ]
+    ]
 }

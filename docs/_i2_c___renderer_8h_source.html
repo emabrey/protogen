@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Protogen<span id="projectnumber">&#160;com.emabrey.Protogen</span>
+   <div id="projectname">Protogen<span id="projectnumber">&#160;com.github.emabrey.Protogen</span>
    </div>
    <div id="projectbrief">Arduino Nano project for driving Protogen LED backpacks over I2C and SPI.</div>
   </td>
@@ -103,98 +103,124 @@ $(document).ready(function(){initNavTree('_i2_c___renderer_8h_source.html',''); 
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="class_i2_c___renderer.html">    8</a></span><span class="keyword">class </span><a class="code hl_class" href="class_i2_c___renderer.html">I2C_Renderer</a></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>{</div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="keyword">virtual</span> <span class="keyword">const</span> uint8_t *getSprite();</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> updateSprite();</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    Adafruit_LEDBackpack *leftBoard, *rightBoard;</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    Adafruit_GFX *leftGraphics, *rightGraphics;</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    uint8_t brightness = I2C_DEFAULT_BRIGHTNESS;</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    uint8_t boardWidth, boardHeight;</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="comment">// Protothread state</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    pt i2cState;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <a class="code hl_class" href="class_i2_c___renderer.html">I2C_Renderer</a>(</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        Adafruit_LEDBackpack *leftBoard, Adafruit_LEDBackpack *rightBoard,</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        Adafruit_GFX *leftGraphics, Adafruit_GFX *rightGraphics,</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <span class="keyword">const</span> uint8_t boardWidth,</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <span class="keyword">const</span> uint8_t boardHeight)</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    {</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        this-&gt;leftBoard = leftBoard;</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        this-&gt;rightBoard = rightBoard;</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        this-&gt;leftGraphics = leftGraphics;</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        this-&gt;rightGraphics = rightGraphics;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        this-&gt;boardWidth = boardWidth;</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        this-&gt;boardHeight = boardHeight;</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    }</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <a class="code hl_class" href="class_i2_c___renderer.html">I2C_Renderer</a>(Adafruit_8x16matrix *left, Adafruit_8x16matrix *right) : <a class="code hl_class" href="class_i2_c___renderer.html">I2C_Renderer</a>(left, right, left, right, 8, 16){};</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <a class="code hl_class" href="class_i2_c___renderer.html">I2C_Renderer</a>(Adafruit_8x8matrix *left, Adafruit_8x8matrix *right) : <a class="code hl_class" href="class_i2_c___renderer.html">I2C_Renderer</a>(left, right, left, right, 8, 8){};</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keyword">inline</span> <span class="keywordtype">void</span> clear()</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    {</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        leftBoard-&gt;clear();</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        rightBoard-&gt;clear();</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    }</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keyword">inline</span> <span class="keywordtype">void</span> drawMirroredSprite(<span class="keyword">const</span> uint8_t *sprite, <span class="keyword">const</span> uint8_t width, <span class="keyword">const</span> uint8_t height)</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    {</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        leftGraphics-&gt;drawBitmap(0, 0, sprite, width, height, LED_ON);</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        rightGraphics-&gt;drawBitmap(0, 0, sprite, width, height, LED_ON);</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    }</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keyword">inline</span> <span class="keywordtype">void</span> flush()</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    {</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        leftBoard-&gt;writeDisplay();</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        rightBoard-&gt;writeDisplay();</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    }</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keyword">inline</span> <span class="keywordtype">void</span> setBrightness(<span class="keyword">const</span> uint8_t b)</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    {</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        leftBoard-&gt;setBrightness(b);</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        rightBoard-&gt;setBrightness(b);</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    }</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="class_i2_c___renderer.html#a964bfb5aa54002a2d3b3587c7d0ae9a7">   14</a></span>    <span class="keyword">virtual</span> <span class="keyword">const</span> uint8_t *<a class="code hl_function" href="class_i2_c___renderer.html#a964bfb5aa54002a2d3b3587c7d0ae9a7">getSprite</a>();</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="class_i2_c___renderer.html#adf9e9591e10fd800e0a55642c0332668">   19</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_i2_c___renderer.html#adf9e9591e10fd800e0a55642c0332668">updateSprite</a>();</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="class_i2_c___renderer.html#a46f5bc0c411cffd41133bbf83c62f4a9">   22</a></span>    Adafruit_LEDBackpack *<a class="code hl_variable" href="class_i2_c___renderer.html#a46f5bc0c411cffd41133bbf83c62f4a9">leftBoard</a>, *rightBoard;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="class_i2_c___renderer.html#a96f566dcf430ba0780cb891d957e06f1">   25</a></span>    Adafruit_GFX *<a class="code hl_variable" href="class_i2_c___renderer.html#a96f566dcf430ba0780cb891d957e06f1">leftGraphics</a>, *rightGraphics;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="class_i2_c___renderer.html#a96ccc2b65566da98f1f499446f9fd39f">   28</a></span>    uint8_t <a class="code hl_variable" href="class_i2_c___renderer.html#a96ccc2b65566da98f1f499446f9fd39f">boardWidth</a>, boardHeight;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="class_i2_c___renderer.html#a742f136558729080b13f5f118543fb69">   31</a></span>    pt <a class="code hl_variable" href="class_i2_c___renderer.html#a742f136558729080b13f5f118543fb69">i2cState</a>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="class_i2_c___renderer.html#a7ba7893252ddbfaa80453c2162e67e6d">   43</a></span>    <a class="code hl_function" href="class_i2_c___renderer.html#a7ba7893252ddbfaa80453c2162e67e6d">I2C_Renderer</a>(</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        Adafruit_LEDBackpack *<a class="code hl_variable" href="class_i2_c___renderer.html#a46f5bc0c411cffd41133bbf83c62f4a9">leftBoard</a>, Adafruit_LEDBackpack *rightBoard,</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        Adafruit_GFX *<a class="code hl_variable" href="class_i2_c___renderer.html#a96f566dcf430ba0780cb891d957e06f1">leftGraphics</a>, Adafruit_GFX *rightGraphics,</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="class_i2_c___renderer.html#a96ccc2b65566da98f1f499446f9fd39f">boardWidth</a>,</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keyword">const</span> uint8_t boardHeight)</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    {</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        this-&gt;leftBoard = <a class="code hl_variable" href="class_i2_c___renderer.html#a46f5bc0c411cffd41133bbf83c62f4a9">leftBoard</a>;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        this-&gt;rightBoard = rightBoard;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        this-&gt;leftGraphics = <a class="code hl_variable" href="class_i2_c___renderer.html#a96f566dcf430ba0780cb891d957e06f1">leftGraphics</a>;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        this-&gt;rightGraphics = rightGraphics;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        this-&gt;boardWidth = <a class="code hl_variable" href="class_i2_c___renderer.html#a96ccc2b65566da98f1f499446f9fd39f">boardWidth</a>;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        this-&gt;boardHeight = boardHeight;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    }</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="class_i2_c___renderer.html#a39553209e50437f8da986dcbe190a8fa">   63</a></span>    <a class="code hl_function" href="class_i2_c___renderer.html#a39553209e50437f8da986dcbe190a8fa">I2C_Renderer</a>(Adafruit_8x16matrix *left, Adafruit_8x16matrix *right) : <a class="code hl_class" href="class_i2_c___renderer.html">I2C_Renderer</a>(left, right, left, right, 8, 16){};</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keyword">inline</span> <span class="keyword">virtual</span> <span class="keywordtype">int</span> i2c_Thread(<span class="keyword">struct</span> pt *pt)</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    {</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        PT_BEGIN(pt);</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        <span class="keywordflow">while</span> (<span class="keyword">true</span>)</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        {</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>            clear();</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>            drawMirroredSprite(getSprite(), boardWidth, boardHeight);</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>            flush();</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>            updateSprite();</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>            PT_YIELD(pt);</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        }</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        PT_END(pt);</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    }</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keyword">inline</span> <span class="keywordtype">void</span> setup_I2C_Addresses(<span class="keyword">const</span> uint8_t leftI2CAddress, <span class="keyword">const</span> uint8_t rightI2CAddress)</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    {</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        leftBoard-&gt;begin(leftI2CAddress);</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        rightBoard-&gt;begin(rightI2CAddress);</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        PT_INIT(&amp;this-&gt;i2cState);</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    }</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keyword">inline</span> <span class="keywordtype">void</span> schedule_Main_Thread()</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    {</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        PT_SCHEDULE(i2c_Thread(&amp;this-&gt;i2cState));</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="class_i2_c___renderer.html#a9ecc438db25a273e25b9beae126cf5ce">   71</a></span>    <a class="code hl_function" href="class_i2_c___renderer.html#a9ecc438db25a273e25b9beae126cf5ce">I2C_Renderer</a>(Adafruit_8x8matrix *left, Adafruit_8x8matrix *right) : <a class="code hl_class" href="class_i2_c___renderer.html">I2C_Renderer</a>(left, right, left, right, 8, 8){};</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="class_i2_c___renderer.html#a83e17e3e8c558e2ccf142053cd6c5af6">   76</a></span>    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_i2_c___renderer.html#a83e17e3e8c558e2ccf142053cd6c5af6">clear</a>()</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    {</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        <a class="code hl_variable" href="class_i2_c___renderer.html#a46f5bc0c411cffd41133bbf83c62f4a9">leftBoard</a>-&gt;clear();</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        rightBoard-&gt;clear();</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    }</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="class_i2_c___renderer.html#ad2735526f25d33f9869e289b2fa6b8f5">   89</a></span>    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_i2_c___renderer.html#ad2735526f25d33f9869e289b2fa6b8f5">drawMirroredSprite</a>(<span class="keyword">const</span> uint8_t *sprite, <span class="keyword">const</span> uint8_t width, <span class="keyword">const</span> uint8_t height)</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    {</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        <a class="code hl_variable" href="class_i2_c___renderer.html#a96f566dcf430ba0780cb891d957e06f1">leftGraphics</a>-&gt;drawBitmap(0, 0, sprite, width, height, LED_ON);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        rightGraphics-&gt;drawBitmap(0, 0, sprite, width, height, LED_ON);</div>
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    }</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>};</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="class_i2_c___renderer.html#a078e730116b26ec5e5394460299e61a7">   98</a></span>    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_i2_c___renderer.html#a078e730116b26ec5e5394460299e61a7">flush</a>()</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    {</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        <a class="code hl_variable" href="class_i2_c___renderer.html#a46f5bc0c411cffd41133bbf83c62f4a9">leftBoard</a>-&gt;writeDisplay();</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        rightBoard-&gt;writeDisplay();</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    }</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno"><a class="line" href="class_i2_c___renderer.html#a083866b8ba991742527061763f0e2e69">  109</a></span>    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_i2_c___renderer.html#a083866b8ba991742527061763f0e2e69">setBrightness</a>(<span class="keyword">const</span> uint8_t b)</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    {</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        <a class="code hl_variable" href="class_i2_c___renderer.html#a46f5bc0c411cffd41133bbf83c62f4a9">leftBoard</a>-&gt;setBrightness(b);</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        rightBoard-&gt;setBrightness(b);</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    }</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="class_i2_c___renderer.html#acc05d185848fe908d65df7e394523b63">  122</a></span>    <span class="keyword">inline</span> <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code hl_function" href="class_i2_c___renderer.html#acc05d185848fe908d65df7e394523b63">i2c_Thread</a>(<span class="keyword">struct</span> pt *pt)</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    {</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        PT_BEGIN(pt);</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>        <span class="keywordflow">while</span> (<span class="keyword">true</span>)</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>        {</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>            <a class="code hl_function" href="class_i2_c___renderer.html#a83e17e3e8c558e2ccf142053cd6c5af6">clear</a>();</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>            <a class="code hl_function" href="class_i2_c___renderer.html#ad2735526f25d33f9869e289b2fa6b8f5">drawMirroredSprite</a>(<a class="code hl_function" href="class_i2_c___renderer.html#a964bfb5aa54002a2d3b3587c7d0ae9a7">getSprite</a>(), <a class="code hl_variable" href="class_i2_c___renderer.html#a96ccc2b65566da98f1f499446f9fd39f">boardWidth</a>, boardHeight);</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>            <a class="code hl_function" href="class_i2_c___renderer.html#a078e730116b26ec5e5394460299e61a7">flush</a>();</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>            <a class="code hl_function" href="class_i2_c___renderer.html#adf9e9591e10fd800e0a55642c0332668">updateSprite</a>();</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>            PT_YIELD(pt);</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        }</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        PT_END(pt);</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    }</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno"><a class="line" href="class_i2_c___renderer.html#aa984c8bdb6c415ca9c4a6c9c05447964">  144</a></span>    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_i2_c___renderer.html#aa984c8bdb6c415ca9c4a6c9c05447964">setup_I2C_Addresses</a>(<span class="keyword">const</span> uint8_t leftI2CAddress, <span class="keyword">const</span> uint8_t rightI2CAddress)</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    {</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>        <a class="code hl_variable" href="class_i2_c___renderer.html#a46f5bc0c411cffd41133bbf83c62f4a9">leftBoard</a>-&gt;begin(leftI2CAddress);</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>        rightBoard-&gt;begin(rightI2CAddress);</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>        PT_INIT(&amp;this-&gt;i2cState);</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    }</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno"><a class="line" href="class_i2_c___renderer.html#ac4f92311de7a67754d11f4a9a252c29f">  155</a></span>    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_i2_c___renderer.html#ac4f92311de7a67754d11f4a9a252c29f">schedule_Main_Thread</a>()</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    {</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>        PT_SCHEDULE(<a class="code hl_function" href="class_i2_c___renderer.html#acc05d185848fe908d65df7e394523b63">i2c_Thread</a>(&amp;this-&gt;i2cState));</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    }</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno"><a class="line" href="class_i2_c___renderer.html#a9d63922aaaa42b4cc02b6f69709c5c3a">  164</a></span>    <span class="keyword">inline</span> <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_i2_c___renderer.html#a9d63922aaaa42b4cc02b6f69709c5c3a">setup_I2C</a>();</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno"><a class="line" href="class_i2_c___renderer.html#a00f4478aa9086b546da0ccf5611201a9">  170</a></span>    <span class="keyword">inline</span> <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_i2_c___renderer.html#a00f4478aa9086b546da0ccf5611201a9">main_I2C</a>()</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    {</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>        <a class="code hl_function" href="class_i2_c___renderer.html#ac4f92311de7a67754d11f4a9a252c29f">schedule_Main_Thread</a>();</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    }</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>};</div>
 <div class="ttc" id="aclass_i2_c___renderer_html"><div class="ttname"><a href="class_i2_c___renderer.html">I2C_Renderer</a></div><div class="ttdef"><b>Definition</b> I2C_Renderer.h:9</div></div>
+<div class="ttc" id="aclass_i2_c___renderer_html_a00f4478aa9086b546da0ccf5611201a9"><div class="ttname"><a href="class_i2_c___renderer.html#a00f4478aa9086b546da0ccf5611201a9">I2C_Renderer::main_I2C</a></div><div class="ttdeci">virtual void main_I2C()</div><div class="ttdoc">Run the I2C main thread.</div><div class="ttdef"><b>Definition</b> I2C_Renderer.h:170</div></div>
+<div class="ttc" id="aclass_i2_c___renderer_html_a078e730116b26ec5e5394460299e61a7"><div class="ttname"><a href="class_i2_c___renderer.html#a078e730116b26ec5e5394460299e61a7">I2C_Renderer::flush</a></div><div class="ttdeci">void flush()</div><div class="ttdoc">Flush the display buffers to both I2C boards.</div><div class="ttdef"><b>Definition</b> I2C_Renderer.h:98</div></div>
+<div class="ttc" id="aclass_i2_c___renderer_html_a083866b8ba991742527061763f0e2e69"><div class="ttname"><a href="class_i2_c___renderer.html#a083866b8ba991742527061763f0e2e69">I2C_Renderer::setBrightness</a></div><div class="ttdeci">void setBrightness(const uint8_t b)</div><div class="ttdoc">Set the brightness on both the left and right I2C boards.</div><div class="ttdef"><b>Definition</b> I2C_Renderer.h:109</div></div>
+<div class="ttc" id="aclass_i2_c___renderer_html_a39553209e50437f8da986dcbe190a8fa"><div class="ttname"><a href="class_i2_c___renderer.html#a39553209e50437f8da986dcbe190a8fa">I2C_Renderer::I2C_Renderer</a></div><div class="ttdeci">I2C_Renderer(Adafruit_8x16matrix *left, Adafruit_8x16matrix *right)</div><div class="ttdoc">Convienence constructor for a new I2C_Renderer using Adafruit 8x16 backpack boards.</div><div class="ttdef"><b>Definition</b> I2C_Renderer.h:63</div></div>
+<div class="ttc" id="aclass_i2_c___renderer_html_a46f5bc0c411cffd41133bbf83c62f4a9"><div class="ttname"><a href="class_i2_c___renderer.html#a46f5bc0c411cffd41133bbf83c62f4a9">I2C_Renderer::leftBoard</a></div><div class="ttdeci">Adafruit_LEDBackpack * leftBoard</div><div class="ttdoc">Pointers to the control objects of both boards.</div><div class="ttdef"><b>Definition</b> I2C_Renderer.h:22</div></div>
+<div class="ttc" id="aclass_i2_c___renderer_html_a742f136558729080b13f5f118543fb69"><div class="ttname"><a href="class_i2_c___renderer.html#a742f136558729080b13f5f118543fb69">I2C_Renderer::i2cState</a></div><div class="ttdeci">pt i2cState</div><div class="ttdoc">Protothread state for I2C boards.</div><div class="ttdef"><b>Definition</b> I2C_Renderer.h:31</div></div>
+<div class="ttc" id="aclass_i2_c___renderer_html_a7ba7893252ddbfaa80453c2162e67e6d"><div class="ttname"><a href="class_i2_c___renderer.html#a7ba7893252ddbfaa80453c2162e67e6d">I2C_Renderer::I2C_Renderer</a></div><div class="ttdeci">I2C_Renderer(Adafruit_LEDBackpack *leftBoard, Adafruit_LEDBackpack *rightBoard, Adafruit_GFX *leftGraphics, Adafruit_GFX *rightGraphics, const uint8_t boardWidth, const uint8_t boardHeight)</div><div class="ttdoc">Fully specified constructor to create a new I2C_Renderer.</div><div class="ttdef"><b>Definition</b> I2C_Renderer.h:43</div></div>
+<div class="ttc" id="aclass_i2_c___renderer_html_a83e17e3e8c558e2ccf142053cd6c5af6"><div class="ttname"><a href="class_i2_c___renderer.html#a83e17e3e8c558e2ccf142053cd6c5af6">I2C_Renderer::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdoc">Clear the left and right boards display buffers.</div><div class="ttdef"><b>Definition</b> I2C_Renderer.h:76</div></div>
+<div class="ttc" id="aclass_i2_c___renderer_html_a964bfb5aa54002a2d3b3587c7d0ae9a7"><div class="ttname"><a href="class_i2_c___renderer.html#a964bfb5aa54002a2d3b3587c7d0ae9a7">I2C_Renderer::getSprite</a></div><div class="ttdeci">virtual const uint8_t * getSprite()</div><div class="ttdoc">Return the current sprite from PROGMEM using custom criteria.</div></div>
+<div class="ttc" id="aclass_i2_c___renderer_html_a96ccc2b65566da98f1f499446f9fd39f"><div class="ttname"><a href="class_i2_c___renderer.html#a96ccc2b65566da98f1f499446f9fd39f">I2C_Renderer::boardWidth</a></div><div class="ttdeci">uint8_t boardWidth</div><div class="ttdoc">The width and height of both I2C boards in pixels.</div><div class="ttdef"><b>Definition</b> I2C_Renderer.h:28</div></div>
+<div class="ttc" id="aclass_i2_c___renderer_html_a96f566dcf430ba0780cb891d957e06f1"><div class="ttname"><a href="class_i2_c___renderer.html#a96f566dcf430ba0780cb891d957e06f1">I2C_Renderer::leftGraphics</a></div><div class="ttdeci">Adafruit_GFX * leftGraphics</div><div class="ttdoc">Pointers to the graphics objects of both boards.</div><div class="ttdef"><b>Definition</b> I2C_Renderer.h:25</div></div>
+<div class="ttc" id="aclass_i2_c___renderer_html_a9d63922aaaa42b4cc02b6f69709c5c3a"><div class="ttname"><a href="class_i2_c___renderer.html#a9d63922aaaa42b4cc02b6f69709c5c3a">I2C_Renderer::setup_I2C</a></div><div class="ttdeci">virtual void setup_I2C()</div><div class="ttdoc">Setup the I2C control objects; should be called from arduino setup()</div></div>
+<div class="ttc" id="aclass_i2_c___renderer_html_a9ecc438db25a273e25b9beae126cf5ce"><div class="ttname"><a href="class_i2_c___renderer.html#a9ecc438db25a273e25b9beae126cf5ce">I2C_Renderer::I2C_Renderer</a></div><div class="ttdeci">I2C_Renderer(Adafruit_8x8matrix *left, Adafruit_8x8matrix *right)</div><div class="ttdoc">Convienence constructor for a new I2C_Renderer using Adafruit 8x8 backpack boards.</div><div class="ttdef"><b>Definition</b> I2C_Renderer.h:71</div></div>
+<div class="ttc" id="aclass_i2_c___renderer_html_aa984c8bdb6c415ca9c4a6c9c05447964"><div class="ttname"><a href="class_i2_c___renderer.html#aa984c8bdb6c415ca9c4a6c9c05447964">I2C_Renderer::setup_I2C_Addresses</a></div><div class="ttdeci">void setup_I2C_Addresses(const uint8_t leftI2CAddress, const uint8_t rightI2CAddress)</div><div class="ttdoc">Setup and initialize the left and right I2C boards at the given addresses.</div><div class="ttdef"><b>Definition</b> I2C_Renderer.h:144</div></div>
+<div class="ttc" id="aclass_i2_c___renderer_html_ac4f92311de7a67754d11f4a9a252c29f"><div class="ttname"><a href="class_i2_c___renderer.html#ac4f92311de7a67754d11f4a9a252c29f">I2C_Renderer::schedule_Main_Thread</a></div><div class="ttdeci">void schedule_Main_Thread()</div><div class="ttdoc">Call PT_SCHEDULE using i2c_Thread method and the i2cState struct.</div><div class="ttdef"><b>Definition</b> I2C_Renderer.h:155</div></div>
+<div class="ttc" id="aclass_i2_c___renderer_html_acc05d185848fe908d65df7e394523b63"><div class="ttname"><a href="class_i2_c___renderer.html#acc05d185848fe908d65df7e394523b63">I2C_Renderer::i2c_Thread</a></div><div class="ttdeci">virtual int i2c_Thread(struct pt *pt)</div><div class="ttdoc">Implementation of the thread runtime for the I2C based boards.</div><div class="ttdef"><b>Definition</b> I2C_Renderer.h:122</div></div>
+<div class="ttc" id="aclass_i2_c___renderer_html_ad2735526f25d33f9869e289b2fa6b8f5"><div class="ttname"><a href="class_i2_c___renderer.html#ad2735526f25d33f9869e289b2fa6b8f5">I2C_Renderer::drawMirroredSprite</a></div><div class="ttdeci">void drawMirroredSprite(const uint8_t *sprite, const uint8_t width, const uint8_t height)</div><div class="ttdoc">Draw the given sprite to both left and right boards display buffers.</div><div class="ttdef"><b>Definition</b> I2C_Renderer.h:89</div></div>
+<div class="ttc" id="aclass_i2_c___renderer_html_adf9e9591e10fd800e0a55642c0332668"><div class="ttname"><a href="class_i2_c___renderer.html#adf9e9591e10fd800e0a55642c0332668">I2C_Renderer::updateSprite</a></div><div class="ttdeci">virtual void updateSprite()</div><div class="ttdoc">Update the sprite periodically using custom criteria.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_3401fbbfea8313d75a4ac4a4e7cca1cc.html">Protogen</a></li><li class="navelem"><a class="el" href="dir_116c1751eb8c32d56c7ca9df6dbab3f4.html">src</a></li><li class="navelem"><a class="el" href="dir_ed07ffc46c92dfe0c39216ccd973fd95.html">renderers</a></li><li class="navelem"><a class="el" href="dir_5d87a9463db43e05927d85c14b278e6b.html">abstract</a></li><li class="navelem"><b>I2C_Renderer.h</b></li>
-    <li class="footer">Generated on Mon Jul 31 2023 23:21:48 for Protogen by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+    <li class="footer">Generated on Tue Aug 1 2023 for Protogen by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
   </ul>
 </div>
 </body>

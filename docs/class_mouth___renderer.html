@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Protogen<span id="projectnumber">&#160;com.emabrey.Protogen</span>
+   <div id="projectname">Protogen<span id="projectnumber">&#160;com.github.emabrey.Protogen</span>
    </div>
    <div id="projectbrief">Arduino Nano project for driving Protogen LED backpacks over I2C and SPI.</div>
   </td>
@@ -98,6 +98,11 @@ $(document).ready(function(){initNavTree('class_mouth___renderer.html',''); init
   <div class="headertitle"><div class="title">Mouth_Renderer Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Renderer for the SPI 8x32 mouth boards TODO: add the right mouth board to the SPI daisy chain and implement in software.  
+ <a href="class_mouth___renderer.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_mouth___renderer_8h_source.html">Mouth_Renderer.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -121,7 +126,7 @@ MD_MAX72XX&#160;</td><td class="memItemRight" valign="bottom"><b>leftMouthMatrix
 <tr class="memdesc:a783c6d90c72cc700802a9a0afcf01277"><td class="mdescLeft">&#160;</td><td class="mdescRight">Control object for left side 8x32 SPI Mouth board. <br /></td></tr>
 <tr class="separator:a783c6d90c72cc700802a9a0afcf01277"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace59f8dea39d91441494305219f4493f"><td class="memItemLeft" align="right" valign="top"><a id="ace59f8dea39d91441494305219f4493f" name="ace59f8dea39d91441494305219f4493f"></a>
-<a class="el" href="class_m_d___m_a_x72_x_x___g_f_x.html">MD_MAX72XX_GFX</a>&#160;</td><td class="memItemRight" valign="bottom"><b>leftMouthGraphics</b> = <a class="el" href="class_m_d___m_a_x72_x_x___g_f_x.html">MD_MAX72XX_GFX</a>(&amp;<a class="el" href="class_mouth___renderer.html#a783c6d90c72cc700802a9a0afcf01277">leftMouthMatrix</a>, SPI_MOUTH_WIDTH, SPI_MOUTH_HEIGHT)</td></tr>
+<a class="el" href="class_m_d___m_a_x72_x_x___g_f_x.html">MD_MAX72XX_GFX</a>&#160;</td><td class="memItemRight" valign="bottom"><b>leftMouthGraphics</b> = <a class="el" href="class_m_d___m_a_x72_x_x___g_f_x.html">MD_MAX72XX_GFX</a>(&amp;<a class="el" href="class_mouth___renderer.html#a783c6d90c72cc700802a9a0afcf01277">leftMouthMatrix</a>)</td></tr>
 <tr class="memdesc:ace59f8dea39d91441494305219f4493f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Graphics object for left side 8x32 SPI Mouth board. <br /></td></tr>
 <tr class="separator:ace59f8dea39d91441494305219f4493f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8da0dee6caebd28e497c466209b1f51"><td class="memItemLeft" align="right" valign="top"><a id="ac8da0dee6caebd28e497c466209b1f51" name="ac8da0dee6caebd28e497c466209b1f51"></a>
@@ -130,10 +135,12 @@ pt&#160;</td><td class="memItemRight" valign="bottom"><b>spiState</b></td></tr>
 <tr class="separator:ac8da0dee6caebd28e497c466209b1f51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0113e72217753ce7aa8598cc8db0fe95"><td class="memItemLeft" align="right" valign="top"><a id="a0113e72217753ce7aa8598cc8db0fe95" name="a0113e72217753ce7aa8598cc8db0fe95"></a>
 unsigned long&#160;</td><td class="memItemRight" valign="bottom"><b>lastRender</b> = millis()</td></tr>
-<tr class="memdesc:a0113e72217753ce7aa8598cc8db0fe95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time since last change in mouth boards' displays. <br /></td></tr>
+<tr class="memdesc:a0113e72217753ce7aa8598cc8db0fe95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time, in milliseconds, at which the last sprite was renderered to the mouth boards. <br /></td></tr>
 <tr class="separator:a0113e72217753ce7aa8598cc8db0fe95"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Renderer for the SPI 8x32 mouth boards TODO: add the right mouth board to the SPI daisy chain and implement in software. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="aea8f236cc075679b74043b8cc8838850" name="aea8f236cc075679b74043b8cc8838850"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aea8f236cc075679b74043b8cc8838850">&#9670;&#160;</a></span>main_SPI()</h2>
 
@@ -158,7 +165,7 @@ unsigned long&#160;</td><td class="memItemRight" valign="bottom"><b>lastRender</
 </div><div class="memdoc">
 
 <p>Schedule the SPI main thread to be run. </p>
-<dl class="section see"><dt>See also</dt><dd>MouthRenderer::spi_thread(struct pt) </dd></dl>
+<dl class="section see"><dt>See also</dt><dd>Mouth_Renderer::spi_thread(struct pt) </dd></dl>
 
 </div>
 </div>
@@ -186,7 +193,7 @@ unsigned long&#160;</td><td class="memItemRight" valign="bottom"><b>lastRender</
 </div><div class="memdoc">
 
 <p>Setup the SPI control objects; should be called from arduino setup() </p>
-<dl class="section see"><dt>See also</dt><dd>MouthRenderer::leftMouthMatrix </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_mouth___renderer.html#a783c6d90c72cc700802a9a0afcf01277" title="Control object for left side 8x32 SPI Mouth board.">Mouth_Renderer::leftMouthMatrix</a> </dd></dl>
 
 </div>
 </div>
@@ -234,7 +241,7 @@ unsigned long&#160;</td><td class="memItemRight" valign="bottom"><b>lastRender</
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_mouth___renderer.html">Mouth_Renderer</a></li>
-    <li class="footer">Generated on Mon Jul 31 2023 23:21:48 for Protogen by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+    <li class="footer">Generated on Tue Aug 1 2023 for Protogen by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
   </ul>
 </div>
 </body>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['currentspriteindex_0',['currentSpriteIndex',['../class_nose___renderer.html#a226799bc52fcaf6b50cbe223faba5884',1,'Nose_Renderer']]]
+  ['boardwidth_0',['boardWidth',['../class_i2_c___renderer.html#a96ccc2b65566da98f1f499446f9fd39f',1,'I2C_Renderer']]]
 ];

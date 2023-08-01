@@ -3,17 +3,27 @@
 #include "abstract/I2C_Renderer.h"
 #include "../sprites/Eye_Sprites.h"
 
-class Eye_Renderer : I2C_Renderer
+/**
+ * @brief Renderer for the I2C 8x16 eye boards
+ */
+class Eye_Renderer : public I2C_Renderer
 {
 private:
-  // Control object for I2C 8x16 Eye Board
+  /// @brief Control object for left side 8x16 I2C eye board
   Adafruit_8x16matrix leftEyeMatrix = Adafruit_8x16matrix();
+
+  /// @brief Control object for right side 8x16 I2C eye board
   Adafruit_8x16matrix rightEyeMatrix = Adafruit_8x16matrix();
+
+  /// @brief Time since last change in eye boards' displays
   unsigned long lastRender = millis();
 
-  // Current eye sprite
+  /// @brief Time, in milliseconds, at which the last sprite was rendered to the eye boards
   int currentSpriteIndex = EYE_EXPRESSION_FIRST;
 
+  /**
+   * @brief Return the current sprite from PROGMEM based upon the current sprite index
+   */
   inline const uint8_t *getSprite()
   {
     return getEyeSprite(currentSpriteIndex);
@@ -21,7 +31,7 @@ private:
 
   /**
    * @brief Update the sprite periodically, based upon the value in I2C_DEFAULT_SPRITE_DWELL_TIME
-   * @sa I2C_DEFAULT_SPRITE_DWELL_TIME
+   * @sa I2C_Config.h
    */
   inline void updateSprite()
   {
@@ -37,26 +47,21 @@ private:
   }
 
 public:
+  /**
+   * @brief Default constructor using Adafruit_8x16matrix boards to instantiate base class
+   */
   Eye_Renderer() : I2C_Renderer(&leftEyeMatrix, &rightEyeMatrix)
   {
   }
 
   /**
    * @brief Setup the I2C control objects; should be called from arduino setup()
-   * @sa Eye_Renderer::leftEyeMatrix
-   * @sa Eye_Renderer::rightEyeMatrix
+   * @sa leftEyeMatrix
+   * @sa rightEyeMatrix
    */
   inline void setup_I2C()
   {
     setup_I2C_Addresses(I2C_ADDRESS_LEFT_EYE_BOARD, I2C_ADDRESS_RIGHT_EYE_BOARD);
-  }
-
-  /**
-   * @brief Schedule the I2C main thread to be run
-   * @sa Eye_Renderer::spi_thread(struct pt)
-   */
-  inline void main_I2C()
-  {
-    schedule_Main_Thread();
+    setBrightness(I2C_DEFAULT_BRIGHTNESS);
   }
 };

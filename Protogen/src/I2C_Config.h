@@ -4,5 +4,5 @@
 #define I2C_ADDRESS_RIGHT_NOSE_BOARD 0x72
 #define I2C_ADDRESS_RIGHT_EYE_BOARD 0x73
 
-#define I2C_DEFAULT_SPRITE_DWELL_TIME 250ul // How long sprites will persist before switching
+#define I2C_DEFAULT_SPRITE_DWELL_TIME 250ul
 #define I2C_DEFAULT_BRIGHTNESS 5

@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Protogen<span id="projectnumber">&#160;com.emabrey.Protogen</span>
+   <div id="projectname">Protogen<span id="projectnumber">&#160;com.github.emabrey.Protogen</span>
    </div>
    <div id="projectbrief">Arduino Nano project for driving Protogen LED backpacks over I2C and SPI.</div>
   </td>
@@ -104,79 +104,307 @@ Inheritance diagram for I2C_Renderer:</div>
  <div class="center">
   <img src="class_i2_c___renderer.png" usemap="#I2C_5FRenderer_map" alt=""/>
   <map id="I2C_5FRenderer_map" name="I2C_5FRenderer_map">
-<area href="class_eye___renderer.html" alt="Eye_Renderer" shape="rect" coords="0,56,101,80"/>
-<area href="class_nose___renderer.html" alt="Nose_Renderer" shape="rect" coords="111,56,212,80"/>
+<area href="class_eye___renderer.html" title="Renderer for the I2C 8x16 eye boards." alt="Eye_Renderer" shape="rect" coords="0,56,101,80"/>
+<area href="class_nose___renderer.html" title="Renderer for the I2C 8x8 nose boards." alt="Nose_Renderer" shape="rect" coords="111,56,212,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac4f92311de7a67754d11f4a9a252c29f"><td class="memItemLeft" align="right" valign="top"><a id="ac4f92311de7a67754d11f4a9a252c29f" name="ac4f92311de7a67754d11f4a9a252c29f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>schedule_Main_Thread</b> ()</td></tr>
-<tr class="separator:ac4f92311de7a67754d11f4a9a252c29f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d63922aaaa42b4cc02b6f69709c5c3a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i2_c___renderer.html#a9d63922aaaa42b4cc02b6f69709c5c3a">setup_I2C</a> ()</td></tr>
+<tr class="memdesc:a9d63922aaaa42b4cc02b6f69709c5c3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setup the I2C control objects; should be called from arduino setup()  <br /></td></tr>
+<tr class="separator:a9d63922aaaa42b4cc02b6f69709c5c3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00f4478aa9086b546da0ccf5611201a9"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i2_c___renderer.html#a00f4478aa9086b546da0ccf5611201a9">main_I2C</a> ()</td></tr>
+<tr class="memdesc:a00f4478aa9086b546da0ccf5611201a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run the I2C main thread.  <br /></td></tr>
+<tr class="separator:a00f4478aa9086b546da0ccf5611201a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:a964bfb5aa54002a2d3b3587c7d0ae9a7"><td class="memItemLeft" align="right" valign="top">virtual const uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i2_c___renderer.html#a964bfb5aa54002a2d3b3587c7d0ae9a7">getSprite</a> ()</td></tr>
+<tr class="memdesc:a964bfb5aa54002a2d3b3587c7d0ae9a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the current sprite from PROGMEM using custom criteria.  <br /></td></tr>
 <tr class="separator:a964bfb5aa54002a2d3b3587c7d0ae9a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf9e9591e10fd800e0a55642c0332668"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i2_c___renderer.html#adf9e9591e10fd800e0a55642c0332668">updateSprite</a> ()</td></tr>
+<tr class="memdesc:adf9e9591e10fd800e0a55642c0332668"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the sprite periodically using custom criteria.  <br /></td></tr>
 <tr class="separator:adf9e9591e10fd800e0a55642c0332668"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ba7893252ddbfaa80453c2162e67e6d"><td class="memItemLeft" align="right" valign="top"><a id="a7ba7893252ddbfaa80453c2162e67e6d" name="a7ba7893252ddbfaa80453c2162e67e6d"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>I2C_Renderer</b> (Adafruit_LEDBackpack *leftBoard, Adafruit_LEDBackpack *rightBoard, Adafruit_GFX *leftGraphics, Adafruit_GFX *rightGraphics, const uint8_t boardWidth, const uint8_t boardHeight)</td></tr>
+<tr class="memitem:a7ba7893252ddbfaa80453c2162e67e6d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i2_c___renderer.html#a7ba7893252ddbfaa80453c2162e67e6d">I2C_Renderer</a> (Adafruit_LEDBackpack *<a class="el" href="class_i2_c___renderer.html#a46f5bc0c411cffd41133bbf83c62f4a9">leftBoard</a>, Adafruit_LEDBackpack *rightBoard, Adafruit_GFX *<a class="el" href="class_i2_c___renderer.html#a96f566dcf430ba0780cb891d957e06f1">leftGraphics</a>, Adafruit_GFX *rightGraphics, const uint8_t <a class="el" href="class_i2_c___renderer.html#a96ccc2b65566da98f1f499446f9fd39f">boardWidth</a>, const uint8_t boardHeight)</td></tr>
+<tr class="memdesc:a7ba7893252ddbfaa80453c2162e67e6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fully specified constructor to create a new <a class="el" href="class_i2_c___renderer.html">I2C_Renderer</a>.  <br /></td></tr>
 <tr class="separator:a7ba7893252ddbfaa80453c2162e67e6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a39553209e50437f8da986dcbe190a8fa"><td class="memItemLeft" align="right" valign="top"><a id="a39553209e50437f8da986dcbe190a8fa" name="a39553209e50437f8da986dcbe190a8fa"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>I2C_Renderer</b> (Adafruit_8x16matrix *left, Adafruit_8x16matrix *right)</td></tr>
+<tr class="memitem:a39553209e50437f8da986dcbe190a8fa"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i2_c___renderer.html#a39553209e50437f8da986dcbe190a8fa">I2C_Renderer</a> (Adafruit_8x16matrix *left, Adafruit_8x16matrix *right)</td></tr>
+<tr class="memdesc:a39553209e50437f8da986dcbe190a8fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convienence constructor for a new <a class="el" href="class_i2_c___renderer.html">I2C_Renderer</a> using Adafruit 8x16 backpack boards.  <br /></td></tr>
 <tr class="separator:a39553209e50437f8da986dcbe190a8fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ecc438db25a273e25b9beae126cf5ce"><td class="memItemLeft" align="right" valign="top"><a id="a9ecc438db25a273e25b9beae126cf5ce" name="a9ecc438db25a273e25b9beae126cf5ce"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>I2C_Renderer</b> (Adafruit_8x8matrix *left, Adafruit_8x8matrix *right)</td></tr>
+<tr class="memitem:a9ecc438db25a273e25b9beae126cf5ce"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i2_c___renderer.html#a9ecc438db25a273e25b9beae126cf5ce">I2C_Renderer</a> (Adafruit_8x8matrix *left, Adafruit_8x8matrix *right)</td></tr>
+<tr class="memdesc:a9ecc438db25a273e25b9beae126cf5ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convienence constructor for a new <a class="el" href="class_i2_c___renderer.html">I2C_Renderer</a> using Adafruit 8x8 backpack boards.  <br /></td></tr>
 <tr class="separator:a9ecc438db25a273e25b9beae126cf5ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a83e17e3e8c558e2ccf142053cd6c5af6"><td class="memItemLeft" align="right" valign="top"><a id="a83e17e3e8c558e2ccf142053cd6c5af6" name="a83e17e3e8c558e2ccf142053cd6c5af6"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>clear</b> ()</td></tr>
+<tr class="memdesc:a83e17e3e8c558e2ccf142053cd6c5af6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the left and right boards display buffers. <br /></td></tr>
 <tr class="separator:a83e17e3e8c558e2ccf142053cd6c5af6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad2735526f25d33f9869e289b2fa6b8f5"><td class="memItemLeft" align="right" valign="top"><a id="ad2735526f25d33f9869e289b2fa6b8f5" name="ad2735526f25d33f9869e289b2fa6b8f5"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>drawMirroredSprite</b> (const uint8_t *sprite, const uint8_t width, const uint8_t height)</td></tr>
+<tr class="memitem:ad2735526f25d33f9869e289b2fa6b8f5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i2_c___renderer.html#ad2735526f25d33f9869e289b2fa6b8f5">drawMirroredSprite</a> (const uint8_t *sprite, const uint8_t width, const uint8_t height)</td></tr>
+<tr class="memdesc:ad2735526f25d33f9869e289b2fa6b8f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw the given sprite to both left and right boards display buffers.  <br /></td></tr>
 <tr class="separator:ad2735526f25d33f9869e289b2fa6b8f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a078e730116b26ec5e5394460299e61a7"><td class="memItemLeft" align="right" valign="top"><a id="a078e730116b26ec5e5394460299e61a7" name="a078e730116b26ec5e5394460299e61a7"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>flush</b> ()</td></tr>
+<tr class="memdesc:a078e730116b26ec5e5394460299e61a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flush the display buffers to both I2C boards. <br /></td></tr>
 <tr class="separator:a078e730116b26ec5e5394460299e61a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a083866b8ba991742527061763f0e2e69"><td class="memItemLeft" align="right" valign="top"><a id="a083866b8ba991742527061763f0e2e69" name="a083866b8ba991742527061763f0e2e69"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setBrightness</b> (const uint8_t b)</td></tr>
+<tr class="memitem:a083866b8ba991742527061763f0e2e69"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i2_c___renderer.html#a083866b8ba991742527061763f0e2e69">setBrightness</a> (const uint8_t b)</td></tr>
+<tr class="memdesc:a083866b8ba991742527061763f0e2e69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the brightness on both the left and right I2C boards.  <br /></td></tr>
 <tr class="separator:a083866b8ba991742527061763f0e2e69"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc05d185848fe908d65df7e394523b63"><td class="memItemLeft" align="right" valign="top"><a id="acc05d185848fe908d65df7e394523b63" name="acc05d185848fe908d65df7e394523b63"></a>
-virtual int&#160;</td><td class="memItemRight" valign="bottom"><b>i2c_Thread</b> (struct pt *pt)</td></tr>
+<tr class="memitem:acc05d185848fe908d65df7e394523b63"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i2_c___renderer.html#acc05d185848fe908d65df7e394523b63">i2c_Thread</a> (struct pt *pt)</td></tr>
+<tr class="memdesc:acc05d185848fe908d65df7e394523b63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementation of the thread runtime for the I2C based boards.  <br /></td></tr>
 <tr class="separator:acc05d185848fe908d65df7e394523b63"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa984c8bdb6c415ca9c4a6c9c05447964"><td class="memItemLeft" align="right" valign="top"><a id="aa984c8bdb6c415ca9c4a6c9c05447964" name="aa984c8bdb6c415ca9c4a6c9c05447964"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setup_I2C_Addresses</b> (const uint8_t leftI2CAddress, const uint8_t rightI2CAddress)</td></tr>
+<tr class="memitem:aa984c8bdb6c415ca9c4a6c9c05447964"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i2_c___renderer.html#aa984c8bdb6c415ca9c4a6c9c05447964">setup_I2C_Addresses</a> (const uint8_t leftI2CAddress, const uint8_t rightI2CAddress)</td></tr>
+<tr class="memdesc:aa984c8bdb6c415ca9c4a6c9c05447964"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setup and initialize the left and right I2C boards at the given addresses.  <br /></td></tr>
 <tr class="separator:aa984c8bdb6c415ca9c4a6c9c05447964"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4f92311de7a67754d11f4a9a252c29f"><td class="memItemLeft" align="right" valign="top"><a id="ac4f92311de7a67754d11f4a9a252c29f" name="ac4f92311de7a67754d11f4a9a252c29f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>schedule_Main_Thread</b> ()</td></tr>
+<tr class="memdesc:ac4f92311de7a67754d11f4a9a252c29f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call PT_SCHEDULE using i2c_Thread method and the i2cState struct. <br /></td></tr>
+<tr class="separator:ac4f92311de7a67754d11f4a9a252c29f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:a46f5bc0c411cffd41133bbf83c62f4a9"><td class="memItemLeft" align="right" valign="top"><a id="a46f5bc0c411cffd41133bbf83c62f4a9" name="a46f5bc0c411cffd41133bbf83c62f4a9"></a>
 Adafruit_LEDBackpack *&#160;</td><td class="memItemRight" valign="bottom"><b>leftBoard</b></td></tr>
+<tr class="memdesc:a46f5bc0c411cffd41133bbf83c62f4a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointers to the control objects of both boards. <br /></td></tr>
 <tr class="separator:a46f5bc0c411cffd41133bbf83c62f4a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a96bea58a208f90a92b607bd772c82c67"><td class="memItemLeft" align="right" valign="top"><a id="a96bea58a208f90a92b607bd772c82c67" name="a96bea58a208f90a92b607bd772c82c67"></a>
 Adafruit_LEDBackpack *&#160;</td><td class="memItemRight" valign="bottom"><b>rightBoard</b></td></tr>
 <tr class="separator:a96bea58a208f90a92b607bd772c82c67"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a96f566dcf430ba0780cb891d957e06f1"><td class="memItemLeft" align="right" valign="top"><a id="a96f566dcf430ba0780cb891d957e06f1" name="a96f566dcf430ba0780cb891d957e06f1"></a>
 Adafruit_GFX *&#160;</td><td class="memItemRight" valign="bottom"><b>leftGraphics</b></td></tr>
+<tr class="memdesc:a96f566dcf430ba0780cb891d957e06f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointers to the graphics objects of both boards. <br /></td></tr>
 <tr class="separator:a96f566dcf430ba0780cb891d957e06f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae4a414bc1a34b05b043313e6be898b0e"><td class="memItemLeft" align="right" valign="top"><a id="ae4a414bc1a34b05b043313e6be898b0e" name="ae4a414bc1a34b05b043313e6be898b0e"></a>
 Adafruit_GFX *&#160;</td><td class="memItemRight" valign="bottom"><b>rightGraphics</b></td></tr>
 <tr class="separator:ae4a414bc1a34b05b043313e6be898b0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a295384510dc36db577a60c879bb015ef"><td class="memItemLeft" align="right" valign="top"><a id="a295384510dc36db577a60c879bb015ef" name="a295384510dc36db577a60c879bb015ef"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>brightness</b> = I2C_DEFAULT_BRIGHTNESS</td></tr>
-<tr class="separator:a295384510dc36db577a60c879bb015ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a96ccc2b65566da98f1f499446f9fd39f"><td class="memItemLeft" align="right" valign="top"><a id="a96ccc2b65566da98f1f499446f9fd39f" name="a96ccc2b65566da98f1f499446f9fd39f"></a>
 uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>boardWidth</b></td></tr>
+<tr class="memdesc:a96ccc2b65566da98f1f499446f9fd39f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The width and height of both I2C boards in pixels. <br /></td></tr>
 <tr class="separator:a96ccc2b65566da98f1f499446f9fd39f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7595e34b07cd971d9a21bb198f9a80ac"><td class="memItemLeft" align="right" valign="top"><a id="a7595e34b07cd971d9a21bb198f9a80ac" name="a7595e34b07cd971d9a21bb198f9a80ac"></a>
 uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>boardHeight</b></td></tr>
 <tr class="separator:a7595e34b07cd971d9a21bb198f9a80ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a742f136558729080b13f5f118543fb69"><td class="memItemLeft" align="right" valign="top"><a id="a742f136558729080b13f5f118543fb69" name="a742f136558729080b13f5f118543fb69"></a>
 pt&#160;</td><td class="memItemRight" valign="bottom"><b>i2cState</b></td></tr>
+<tr class="memdesc:a742f136558729080b13f5f118543fb69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Protothread state for I2C boards. <br /></td></tr>
 <tr class="separator:a742f136558729080b13f5f118543fb69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a7ba7893252ddbfaa80453c2162e67e6d" name="a7ba7893252ddbfaa80453c2162e67e6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ba7893252ddbfaa80453c2162e67e6d">&#9670;&#160;</a></span>I2C_Renderer() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">I2C_Renderer::I2C_Renderer </td>
+          <td>(</td>
+          <td class="paramtype">Adafruit_LEDBackpack *&#160;</td>
+          <td class="paramname"><em>leftBoard</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Adafruit_LEDBackpack *&#160;</td>
+          <td class="paramname"><em>rightBoard</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Adafruit_GFX *&#160;</td>
+          <td class="paramname"><em>leftGraphics</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Adafruit_GFX *&#160;</td>
+          <td class="paramname"><em>rightGraphics</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t&#160;</td>
+          <td class="paramname"><em>boardWidth</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t&#160;</td>
+          <td class="paramname"><em>boardHeight</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Fully specified constructor to create a new <a class="el" href="class_i2_c___renderer.html">I2C_Renderer</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">leftBoard</td><td>The control object for the left I2C board </td></tr>
+    <tr><td class="paramname">rightBoard</td><td>The control object for the right I2C board </td></tr>
+    <tr><td class="paramname">leftGraphics</td><td>The graphics object for the left I2C board </td></tr>
+    <tr><td class="paramname">rightGraphics</td><td>The graphics object for the right I2C board </td></tr>
+    <tr><td class="paramname">boardWidth</td><td>The width of both the left and right boards in pixels </td></tr>
+    <tr><td class="paramname">boardHeight</td><td>The height of both the left and right boards in pixels </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a39553209e50437f8da986dcbe190a8fa" name="a39553209e50437f8da986dcbe190a8fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39553209e50437f8da986dcbe190a8fa">&#9670;&#160;</a></span>I2C_Renderer() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">I2C_Renderer::I2C_Renderer </td>
+          <td>(</td>
+          <td class="paramtype">Adafruit_8x16matrix *&#160;</td>
+          <td class="paramname"><em>left</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Adafruit_8x16matrix *&#160;</td>
+          <td class="paramname"><em>right</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Convienence constructor for a new <a class="el" href="class_i2_c___renderer.html">I2C_Renderer</a> using Adafruit 8x16 backpack boards. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">left</td><td>The left board provided as an Adafruit_8x16matrix instance </td></tr>
+    <tr><td class="paramname">right</td><td>The right board provided as an Adafruit_8x16matrix instance </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9ecc438db25a273e25b9beae126cf5ce" name="a9ecc438db25a273e25b9beae126cf5ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ecc438db25a273e25b9beae126cf5ce">&#9670;&#160;</a></span>I2C_Renderer() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">I2C_Renderer::I2C_Renderer </td>
+          <td>(</td>
+          <td class="paramtype">Adafruit_8x8matrix *&#160;</td>
+          <td class="paramname"><em>left</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Adafruit_8x8matrix *&#160;</td>
+          <td class="paramname"><em>right</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Convienence constructor for a new <a class="el" href="class_i2_c___renderer.html">I2C_Renderer</a> using Adafruit 8x8 backpack boards. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">left</td><td>The left board provided as an Adafruit_8x8matrix instance </td></tr>
+    <tr><td class="paramname">right</td><td>The right board provided as an Adafruit_8x8matrix instance </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="ad2735526f25d33f9869e289b2fa6b8f5" name="ad2735526f25d33f9869e289b2fa6b8f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2735526f25d33f9869e289b2fa6b8f5">&#9670;&#160;</a></span>drawMirroredSprite()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void I2C_Renderer::drawMirroredSprite </td>
+          <td>(</td>
+          <td class="paramtype">const uint8_t *&#160;</td>
+          <td class="paramname"><em>sprite</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t&#160;</td>
+          <td class="paramname"><em>height</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Draw the given sprite to both left and right boards display buffers. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sprite</td><td>The PROGMEM stored sprite with the given width and the height </td></tr>
+    <tr><td class="paramname">width</td><td>The width of the given sprite </td></tr>
+    <tr><td class="paramname">height</td><td>The height of the given sprite </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a964bfb5aa54002a2d3b3587c7d0ae9a7" name="a964bfb5aa54002a2d3b3587c7d0ae9a7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a964bfb5aa54002a2d3b3587c7d0ae9a7">&#9670;&#160;</a></span>getSprite()</h2>
 
@@ -200,7 +428,180 @@ pt&#160;</td><td class="memItemRight" valign="bottom"><b>i2cState</b></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented in <a class="el" href="class_nose___renderer.html#a740c104dbf24d6f5d8fb488627907d89">Nose_Renderer</a>.</p>
+<p>Return the current sprite from PROGMEM using custom criteria. </p>
+
+<p>Reimplemented in <a class="el" href="class_eye___renderer.html#a016b7c90414265f505e59a6af3b0cc2a">Eye_Renderer</a>, and <a class="el" href="class_nose___renderer.html#a740c104dbf24d6f5d8fb488627907d89">Nose_Renderer</a>.</p>
+
+</div>
+</div>
+<a id="acc05d185848fe908d65df7e394523b63" name="acc05d185848fe908d65df7e394523b63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc05d185848fe908d65df7e394523b63">&#9670;&#160;</a></span>i2c_Thread()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int I2C_Renderer::i2c_Thread </td>
+          <td>(</td>
+          <td class="paramtype">struct pt *&#160;</td>
+          <td class="paramname"><em>pt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implementation of the thread runtime for the I2C based boards. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pt</td><td>The Protothread state struct </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>int The result of the pt execution; can be PT_ENDED if the thread terminated. </dd></dl>
+
+</div>
+</div>
+<a id="a00f4478aa9086b546da0ccf5611201a9" name="a00f4478aa9086b546da0ccf5611201a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00f4478aa9086b546da0ccf5611201a9">&#9670;&#160;</a></span>main_I2C()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void I2C_Renderer::main_I2C </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Run the I2C main thread. </p>
+<dl class="section see"><dt>See also</dt><dd>i2c_Thread(struct pt) </dd></dl>
+
+</div>
+</div>
+<a id="a083866b8ba991742527061763f0e2e69" name="a083866b8ba991742527061763f0e2e69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a083866b8ba991742527061763f0e2e69">&#9670;&#160;</a></span>setBrightness()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void I2C_Renderer::setBrightness </td>
+          <td>(</td>
+          <td class="paramtype">const uint8_t&#160;</td>
+          <td class="paramname"><em>b</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set the brightness on both the left and right I2C boards. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">b</td><td>The brightness level to be set for the boards </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9d63922aaaa42b4cc02b6f69709c5c3a" name="a9d63922aaaa42b4cc02b6f69709c5c3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d63922aaaa42b4cc02b6f69709c5c3a">&#9670;&#160;</a></span>setup_I2C()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void I2C_Renderer::setup_I2C </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Setup the I2C control objects; should be called from arduino setup() </p>
+
+<p>Reimplemented in <a class="el" href="class_eye___renderer.html#ad1a8b0485eb40113815f116a77c32e58">Eye_Renderer</a>, and <a class="el" href="class_nose___renderer.html#a08752574f1c9b15abc4154cc0eeeccdd">Nose_Renderer</a>.</p>
+
+</div>
+</div>
+<a id="aa984c8bdb6c415ca9c4a6c9c05447964" name="aa984c8bdb6c415ca9c4a6c9c05447964"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa984c8bdb6c415ca9c4a6c9c05447964">&#9670;&#160;</a></span>setup_I2C_Addresses()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void I2C_Renderer::setup_I2C_Addresses </td>
+          <td>(</td>
+          <td class="paramtype">const uint8_t&#160;</td>
+          <td class="paramname"><em>leftI2CAddress</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t&#160;</td>
+          <td class="paramname"><em>rightI2CAddress</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Setup and initialize the left and right I2C boards at the given addresses. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">leftI2CAddress</td><td>The address for the left I2C board; configure by soldering pads on backpack </td></tr>
+    <tr><td class="paramname">rightI2CAddress</td><td>The address for the right I2C board; configure by soldering pads on backpack </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -227,6 +628,8 @@ pt&#160;</td><td class="memItemRight" valign="bottom"><b>i2cState</b></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Update the sprite periodically using custom criteria. </p>
+
 <p>Reimplemented in <a class="el" href="class_eye___renderer.html#a89b9f6ec49820e9194a7eba899748e76">Eye_Renderer</a>, and <a class="el" href="class_nose___renderer.html#ac7d482b47a508f696ec0b12cbf212b77">Nose_Renderer</a>.</p>
 
 </div>
@@ -240,7 +643,7 @@ pt&#160;</td><td class="memItemRight" valign="bottom"><b>i2cState</b></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_i2_c___renderer.html">I2C_Renderer</a></li>
-    <li class="footer">Generated on Mon Jul 31 2023 23:21:48 for Protogen by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+    <li class="footer">Generated on Tue Aug 1 2023 for Protogen by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
   </ul>
 </div>
 </body>

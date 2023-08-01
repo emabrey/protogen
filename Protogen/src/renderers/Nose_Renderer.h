@@ -5,7 +5,10 @@
 
 #define SPI_LED_ON 1
 
-class Nose_Renderer : I2C_Renderer
+/**
+ * @brief Renderer for the I2C 8x8 nose boards
+ */
+class Nose_Renderer : public I2C_Renderer
 {
 private:
   /// @brief Control object for the left I2C 8x8 Nose Board
@@ -14,7 +17,7 @@ private:
   /// @brief Control object for the right I2C 8x8 Nose Board
   Adafruit_8x8matrix rightNoseMatrix = Adafruit_8x8matrix();
 
-  /// @brief Time, in milliseconds, at which the last sprite was renderered to the nose boards
+  /// @brief Time, in milliseconds, at which the last sprite was rendered to the nose boards
   unsigned long lastRender = millis();
 
   /// @brief Current sprite for the nose board
@@ -31,8 +34,6 @@ private:
 
   /**
    * @brief Update the sprite periodically, based upon the value in I2C_DEFAULT_SPRITE_DWELL_TIME
-   * @sa Nose_Renderer::lastRender
-   * @sa Nose_Renderer::currentSpriteIndex
    * @sa I2C_Config.h
    */
   inline void updateSprite()
@@ -49,17 +50,21 @@ private:
   }
 
 public:
+  /**
+   * @brief Default constructor using Adafruit_8x8matrix boards to instantiate base class
+   */
   Nose_Renderer() : I2C_Renderer(&leftNoseMatrix, &rightNoseMatrix)
   {
   }
 
+  /**
+   * @brief Setup the I2C control objects; should be called from arduino setup()
+   * @sa leftEyeMatrix
+   * @sa rightEyeMatrix
+   */
   inline void setup_I2C()
   {
     setup_I2C_Addresses(I2C_ADDRESS_LEFT_NOSE_BOARD, I2C_ADDRESS_RIGHT_NOSE_BOARD);
-  }
-
-  inline void main_I2C()
-  {
-    schedule_Main_Thread();
+    setBrightness(I2C_DEFAULT_BRIGHTNESS);
   }
 };

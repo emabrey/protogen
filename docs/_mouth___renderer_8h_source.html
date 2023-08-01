@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Protogen<span id="projectnumber">&#160;com.emabrey.Protogen</span>
+   <div id="projectname">Protogen<span id="projectnumber">&#160;com.github.emabrey.Protogen</span>
    </div>
    <div id="projectbrief">Arduino Nano project for driving Protogen LED backpacks over I2C and SPI.</div>
   </td>
@@ -93,23 +93,19 @@ $(document).ready(function(){initNavTree('_mouth___renderer_8h_source.html','');
   <div class="headertitle"><div class="title">Mouth_Renderer.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/* 32x4 SPI Board */</span></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/* 8x32 SPI Board */</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;abstract/MD_MAX72XX_GFX.h&quot;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;MD_MAX72xx.h&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;protothreads.h&gt;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;../SPI_Config.h&quot;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="class_mouth___renderer.html">    9</a></span><span class="keyword">class </span><a class="code hl_class" href="class_mouth___renderer.html">Mouth_Renderer</a></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>  <span class="keyword">using </span>enum MD_MAX72XX::controlRequest_t;</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>  <span class="keyword">using </span>enum MD_MAX72XX::controlValue_t;</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;MD_MAX72xx.h&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;protothreads.h&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;abstract/MD_MAX72XX_GFX.h&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;../SPI_Config.h&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="class_mouth___renderer.html">   12</a></span><span class="keyword">class </span><a class="code hl_class" href="class_mouth___renderer.html">Mouth_Renderer</a></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>{</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">private</span>:</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="class_mouth___renderer.html#a783c6d90c72cc700802a9a0afcf01277">   16</a></span>  MD_MAX72XX <a class="code hl_variable" href="class_mouth___renderer.html#a783c6d90c72cc700802a9a0afcf01277">leftMouthMatrix</a> = MD_MAX72XX(SPI_HARDWARE_TYPE, SPI_CHIP_SEL_PIN, SPI_MAX_DEVICES);</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="class_mouth___renderer.html#ace59f8dea39d91441494305219f4493f">   19</a></span>  <a class="code hl_class" href="class_m_d___m_a_x72_x_x___g_f_x.html">MD_MAX72XX_GFX</a> <a class="code hl_variable" href="class_mouth___renderer.html#ace59f8dea39d91441494305219f4493f">leftMouthGraphics</a> = <a class="code hl_class" href="class_m_d___m_a_x72_x_x___g_f_x.html">MD_MAX72XX_GFX</a>(&amp;<a class="code hl_variable" href="class_mouth___renderer.html#a783c6d90c72cc700802a9a0afcf01277">leftMouthMatrix</a>, SPI_MOUTH_WIDTH, SPI_MOUTH_HEIGHT);</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="class_mouth___renderer.html#ace59f8dea39d91441494305219f4493f">   19</a></span>  <a class="code hl_class" href="class_m_d___m_a_x72_x_x___g_f_x.html">MD_MAX72XX_GFX</a> <a class="code hl_variable" href="class_mouth___renderer.html#ace59f8dea39d91441494305219f4493f">leftMouthGraphics</a> = <a class="code hl_class" href="class_m_d___m_a_x72_x_x___g_f_x.html">MD_MAX72XX_GFX</a>(&amp;<a class="code hl_variable" href="class_mouth___renderer.html#a783c6d90c72cc700802a9a0afcf01277">leftMouthMatrix</a>);</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="class_mouth___renderer.html#ac8da0dee6caebd28e497c466209b1f51">   22</a></span>  pt <a class="code hl_variable" href="class_mouth___renderer.html#ac8da0dee6caebd28e497c466209b1f51">spiState</a>;</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
@@ -124,10 +120,10 @@ $(document).ready(function(){initNavTree('_mouth___renderer_8h_source.html','');
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>      <span class="keywordflow">if</span> (millis() - <a class="code hl_variable" href="class_mouth___renderer.html#a0113e72217753ce7aa8598cc8db0fe95">lastRender</a> &gt; SPI_DEFAULT_SPRITE_DWELL_TIME)</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>      {</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        <a class="code hl_variable" href="class_mouth___renderer.html#a783c6d90c72cc700802a9a0afcf01277">leftMouthMatrix</a>.clear();</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <a class="code hl_variable" href="class_mouth___renderer.html#a783c6d90c72cc700802a9a0afcf01277">leftMouthMatrix</a>.control(UPDATE, OFF);</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <a class="code hl_variable" href="class_mouth___renderer.html#ace59f8dea39d91441494305219f4493f">leftMouthGraphics</a>.fillRect(0, 0, SPI_MOUTH_HEIGHT, SPI_MOUTH_WIDTH, ON);</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <a class="code hl_variable" href="class_mouth___renderer.html#ace59f8dea39d91441494305219f4493f">leftMouthGraphics</a>.drawLine(0, 0, SPI_MOUTH_HEIGHT, SPI_MOUTH_WIDTH, OFF);</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <a class="code hl_variable" href="class_mouth___renderer.html#a783c6d90c72cc700802a9a0afcf01277">leftMouthMatrix</a>.control(UPDATE, ON);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <a class="code hl_variable" href="class_mouth___renderer.html#a783c6d90c72cc700802a9a0afcf01277">leftMouthMatrix</a>.control(MD_MAX72XX::UPDATE, MD_MAX72XX::OFF);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <a class="code hl_variable" href="class_mouth___renderer.html#ace59f8dea39d91441494305219f4493f">leftMouthGraphics</a>.fillRect(0, 0, SPI_MOUTH_HEIGHT, SPI_MOUTH_WIDTH, MD_MAX72XX::ON);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <a class="code hl_variable" href="class_mouth___renderer.html#ace59f8dea39d91441494305219f4493f">leftMouthGraphics</a>.drawLine(0, 0, SPI_MOUTH_HEIGHT, SPI_MOUTH_WIDTH, MD_MAX72XX::OFF);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <a class="code hl_variable" href="class_mouth___renderer.html#a783c6d90c72cc700802a9a0afcf01277">leftMouthMatrix</a>.control(MD_MAX72XX::UPDATE, MD_MAX72XX::ON);</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <a class="code hl_variable" href="class_mouth___renderer.html#a0113e72217753ce7aa8598cc8db0fe95">lastRender</a> = millis();</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>      }</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
@@ -141,7 +137,7 @@ $(document).ready(function(){initNavTree('_mouth___renderer_8h_source.html','');
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="class_mouth___renderer.html#a4fbfd459554d54dd2e8284b9cabe7e8e">   60</a></span>  <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_mouth___renderer.html#a4fbfd459554d54dd2e8284b9cabe7e8e">setup_SPI</a>()</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>  {</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <a class="code hl_variable" href="class_mouth___renderer.html#a783c6d90c72cc700802a9a0afcf01277">leftMouthMatrix</a>.begin();</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <a class="code hl_variable" href="class_mouth___renderer.html#a783c6d90c72cc700802a9a0afcf01277">leftMouthMatrix</a>.control(INTENSITY, SPI_MOUTH_DEFAULT_BRIGHTNESS);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <a class="code hl_variable" href="class_mouth___renderer.html#a783c6d90c72cc700802a9a0afcf01277">leftMouthMatrix</a>.control(MD_MAX72XX::INTENSITY, SPI_MOUTH_DEFAULT_BRIGHTNESS);</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    PT_INIT(&amp;<a class="code hl_variable" href="class_mouth___renderer.html#ac8da0dee6caebd28e497c466209b1f51">spiState</a>);</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>  }</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
@@ -150,9 +146,9 @@ $(document).ready(function(){initNavTree('_mouth___renderer_8h_source.html','');
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    PT_SCHEDULE(<a class="code hl_function" href="class_mouth___renderer.html#a014bd8426f004133d3fd519ae0e68831">spi_Thread</a>(&amp;<a class="code hl_variable" href="class_mouth___renderer.html#ac8da0dee6caebd28e497c466209b1f51">spiState</a>));</div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>  }</div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>};</div>
-<div class="ttc" id="aclass_m_d___m_a_x72_x_x___g_f_x_html"><div class="ttname"><a href="class_m_d___m_a_x72_x_x___g_f_x.html">MD_MAX72XX_GFX</a></div><div class="ttdef"><b>Definition</b> MD_MAX72XX_GFX.h:8</div></div>
-<div class="ttc" id="aclass_mouth___renderer_html"><div class="ttname"><a href="class_mouth___renderer.html">Mouth_Renderer</a></div><div class="ttdef"><b>Definition</b> Mouth_Renderer.h:10</div></div>
-<div class="ttc" id="aclass_mouth___renderer_html_a0113e72217753ce7aa8598cc8db0fe95"><div class="ttname"><a href="class_mouth___renderer.html#a0113e72217753ce7aa8598cc8db0fe95">Mouth_Renderer::lastRender</a></div><div class="ttdeci">unsigned long lastRender</div><div class="ttdoc">Time since last change in mouth boards' displays.</div><div class="ttdef"><b>Definition</b> Mouth_Renderer.h:25</div></div>
+<div class="ttc" id="aclass_m_d___m_a_x72_x_x___g_f_x_html"><div class="ttname"><a href="class_m_d___m_a_x72_x_x___g_f_x.html">MD_MAX72XX_GFX</a></div><div class="ttdoc">Adapter to allow MD_MAX72XX board to be drawn using Adafruit_GFX API.</div><div class="ttdef"><b>Definition</b> MD_MAX72XX_GFX.h:10</div></div>
+<div class="ttc" id="aclass_mouth___renderer_html"><div class="ttname"><a href="class_mouth___renderer.html">Mouth_Renderer</a></div><div class="ttdoc">Renderer for the SPI 8x32 mouth boards TODO: add the right mouth board to the SPI daisy chain and imp...</div><div class="ttdef"><b>Definition</b> Mouth_Renderer.h:13</div></div>
+<div class="ttc" id="aclass_mouth___renderer_html_a0113e72217753ce7aa8598cc8db0fe95"><div class="ttname"><a href="class_mouth___renderer.html#a0113e72217753ce7aa8598cc8db0fe95">Mouth_Renderer::lastRender</a></div><div class="ttdeci">unsigned long lastRender</div><div class="ttdoc">Time, in milliseconds, at which the last sprite was renderered to the mouth boards.</div><div class="ttdef"><b>Definition</b> Mouth_Renderer.h:25</div></div>
 <div class="ttc" id="aclass_mouth___renderer_html_a014bd8426f004133d3fd519ae0e68831"><div class="ttname"><a href="class_mouth___renderer.html#a014bd8426f004133d3fd519ae0e68831">Mouth_Renderer::spi_Thread</a></div><div class="ttdeci">int spi_Thread(struct pt *pt)</div><div class="ttdoc">Implementation of the thread runtime for the SPI based mouth boards.</div><div class="ttdef"><b>Definition</b> Mouth_Renderer.h:33</div></div>
 <div class="ttc" id="aclass_mouth___renderer_html_a4fbfd459554d54dd2e8284b9cabe7e8e"><div class="ttname"><a href="class_mouth___renderer.html#a4fbfd459554d54dd2e8284b9cabe7e8e">Mouth_Renderer::setup_SPI</a></div><div class="ttdeci">void setup_SPI()</div><div class="ttdoc">Setup the SPI control objects; should be called from arduino setup()</div><div class="ttdef"><b>Definition</b> Mouth_Renderer.h:60</div></div>
 <div class="ttc" id="aclass_mouth___renderer_html_a783c6d90c72cc700802a9a0afcf01277"><div class="ttname"><a href="class_mouth___renderer.html#a783c6d90c72cc700802a9a0afcf01277">Mouth_Renderer::leftMouthMatrix</a></div><div class="ttdeci">MD_MAX72XX leftMouthMatrix</div><div class="ttdoc">Control object for left side 8x32 SPI Mouth board.</div><div class="ttdef"><b>Definition</b> Mouth_Renderer.h:16</div></div>
@@ -165,7 +161,7 @@ $(document).ready(function(){initNavTree('_mouth___renderer_8h_source.html','');
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_3401fbbfea8313d75a4ac4a4e7cca1cc.html">Protogen</a></li><li class="navelem"><a class="el" href="dir_116c1751eb8c32d56c7ca9df6dbab3f4.html">src</a></li><li class="navelem"><a class="el" href="dir_ed07ffc46c92dfe0c39216ccd973fd95.html">renderers</a></li><li class="navelem"><b>Mouth_Renderer.h</b></li>
-    <li class="footer">Generated on Mon Jul 31 2023 23:21:48 for Protogen by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+    <li class="footer">Generated on Tue Aug 1 2023 for Protogen by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
   </ul>
 </div>
 </body>

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['main_5fi2c_0',['main_I2C',['../class_eye___renderer.html#af5fc9b8f01885f2e6522447cf85ccec2',1,'Eye_Renderer']]],
-  ['main_5fspi_1',['main_SPI',['../class_mouth___renderer.html#aea8f236cc075679b74043b8cc8838850',1,'Mouth_Renderer']]]
+  ['drawmirroredsprite_0',['drawMirroredSprite',['../class_i2_c___renderer.html#ad2735526f25d33f9869e289b2fa6b8f5',1,'I2C_Renderer']]],
+  ['drawpixel_1',['drawPixel',['../class_m_d___m_a_x72_x_x___g_f_x.html#aeae4ec619f5f190a9afe8561ca2b06e0',1,'MD_MAX72XX_GFX']]]
 ];

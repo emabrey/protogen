@@ -41,6 +41,12 @@ static const uint8_t PROGMEM
     nose_overheat[] = {B11111111, B00100100, B00010010, B00100100, B01001000, B00100100, B00010010, B00100100},
     nose_error[] = {B01111110, B10111101, B11011011, B11100111, B11100111, B11011011, B10111101, B01111110};
 
+/**
+ * @brief Get a nose sprite from PROGMEM using the provided index lookup
+ *
+ * @param index A value in the range [NOSE_EXPRESSION_FIRST, NOSE_EXPRESSION_LAST]
+ * @return const uint8_t* The requested sprite's array, or an error sprite array if index was out-of-bounds
+ */
 static const uint8_t *getNoseSprite(uint8_t index)
 {
     switch (index)

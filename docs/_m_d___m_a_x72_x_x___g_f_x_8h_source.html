@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Protogen<span id="projectnumber">&#160;com.emabrey.Protogen</span>
+   <div id="projectname">Protogen<span id="projectnumber">&#160;com.github.emabrey.Protogen</span>
    </div>
    <div id="projectbrief">Arduino Nano project for driving Protogen LED backpacks over I2C and SPI.</div>
   </td>
@@ -98,33 +98,32 @@ $(document).ready(function(){initNavTree('_m_d___m_a_x72_x_x___g_f_x_8h_source.h
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;MD_MAX72xx.h&gt;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;protothreads.h&gt;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;../../SPI_Config.h&quot;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="class_m_d___m_a_x72_x_x___g_f_x.html">    7</a></span><span class="keyword">class </span><a class="code hl_class" href="class_m_d___m_a_x72_x_x___g_f_x.html">MD_MAX72XX_GFX</a> : <span class="keyword">public</span> Adafruit_GFX</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>{</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <span class="keyword">using </span>enum MD_MAX72XX::controlValue_t;</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="class_m_d___m_a_x72_x_x___g_f_x.html">    9</a></span><span class="keyword">class </span><a class="code hl_class" href="class_m_d___m_a_x72_x_x___g_f_x.html">MD_MAX72XX_GFX</a> : <span class="keyword">public</span> Adafruit_GFX</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">protected</span>:</div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    MD_MAX72XX *matrix;</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <a class="code hl_class" href="class_m_d___m_a_x72_x_x___g_f_x.html">MD_MAX72XX_GFX</a>(MD_MAX72XX *matrix, uint16_t width, uint16_t height) : Adafruit_GFX(width, height)</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    {</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        this-&gt;matrix = matrix;</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    }</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordtype">void</span> drawPixel(int16_t x, int16_t y, uint16_t color)</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="class_m_d___m_a_x72_x_x___g_f_x.html#a655d0221fc7b062d638684f76178ace2">   20</a></span>    <a class="code hl_function" href="class_m_d___m_a_x72_x_x___g_f_x.html#a655d0221fc7b062d638684f76178ace2">MD_MAX72XX_GFX</a>(MD_MAX72XX *matrix) : Adafruit_GFX(matrix-&gt;getColumnCount(), ROW_SIZE)</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    {</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        matrix-&gt;setPoint(x, y, (color == 0) ? OFF : ON);</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        this-&gt;matrix = matrix;</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    }</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>};</div>
-<div class="ttc" id="aclass_m_d___m_a_x72_x_x___g_f_x_html"><div class="ttname"><a href="class_m_d___m_a_x72_x_x___g_f_x.html">MD_MAX72XX_GFX</a></div><div class="ttdef"><b>Definition</b> MD_MAX72XX_GFX.h:8</div></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="class_m_d___m_a_x72_x_x___g_f_x.html#aeae4ec619f5f190a9afe8561ca2b06e0">   32</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_m_d___m_a_x72_x_x___g_f_x.html#aeae4ec619f5f190a9afe8561ca2b06e0">drawPixel</a>(int16_t x, int16_t y, uint16_t color)</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    {</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        matrix-&gt;setPoint((uint8_t)x, y, (color == 0) ? MD_MAX72XX::OFF : MD_MAX72XX::ON);</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    }</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>};</div>
+<div class="ttc" id="aclass_m_d___m_a_x72_x_x___g_f_x_html"><div class="ttname"><a href="class_m_d___m_a_x72_x_x___g_f_x.html">MD_MAX72XX_GFX</a></div><div class="ttdoc">Adapter to allow MD_MAX72XX board to be drawn using Adafruit_GFX API.</div><div class="ttdef"><b>Definition</b> MD_MAX72XX_GFX.h:10</div></div>
+<div class="ttc" id="aclass_m_d___m_a_x72_x_x___g_f_x_html_a655d0221fc7b062d638684f76178ace2"><div class="ttname"><a href="class_m_d___m_a_x72_x_x___g_f_x.html#a655d0221fc7b062d638684f76178ace2">MD_MAX72XX_GFX::MD_MAX72XX_GFX</a></div><div class="ttdeci">MD_MAX72XX_GFX(MD_MAX72XX *matrix)</div><div class="ttdoc">Construct a MD_MAX72XX_GFX object that wraps around the given MD_MAX72XX instance.</div><div class="ttdef"><b>Definition</b> MD_MAX72XX_GFX.h:20</div></div>
+<div class="ttc" id="aclass_m_d___m_a_x72_x_x___g_f_x_html_aeae4ec619f5f190a9afe8561ca2b06e0"><div class="ttname"><a href="class_m_d___m_a_x72_x_x___g_f_x.html#aeae4ec619f5f190a9afe8561ca2b06e0">MD_MAX72XX_GFX::drawPixel</a></div><div class="ttdeci">void drawPixel(int16_t x, int16_t y, uint16_t color)</div><div class="ttdoc">Set a pixel on or off on the underlying MD_MAX72XX display.</div><div class="ttdef"><b>Definition</b> MD_MAX72XX_GFX.h:32</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_3401fbbfea8313d75a4ac4a4e7cca1cc.html">Protogen</a></li><li class="navelem"><a class="el" href="dir_116c1751eb8c32d56c7ca9df6dbab3f4.html">src</a></li><li class="navelem"><a class="el" href="dir_ed07ffc46c92dfe0c39216ccd973fd95.html">renderers</a></li><li class="navelem"><a class="el" href="dir_5d87a9463db43e05927d85c14b278e6b.html">abstract</a></li><li class="navelem"><b>MD_MAX72XX_GFX.h</b></li>
-    <li class="footer">Generated on Mon Jul 31 2023 23:21:48 for Protogen by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+    <li class="footer">Generated on Tue Aug 1 2023 for Protogen by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
   </ul>
 </div>
 </body>

@@ -1,27 +1,27 @@
-/* 32x4 SPI Board */
+/* 8x32 SPI Board */
 
-#include "abstract/MD_MAX72XX_GFX.h"
 #include <MD_MAX72xx.h>
 #include <protothreads.h>
-
+#include "abstract/MD_MAX72XX_GFX.h"
 #include "../SPI_Config.h"
 
+/**
+ * @brief Renderer for the SPI 8x32 mouth boards
+ * TODO: add the right mouth board to the SPI daisy chain and implement in software
+ */
 class Mouth_Renderer
 {
-  using enum MD_MAX72XX::controlRequest_t;
-  using enum MD_MAX72XX::controlValue_t;
-
 private:
   /// @brief Control object for left side 8x32 SPI Mouth board
   MD_MAX72XX leftMouthMatrix = MD_MAX72XX(SPI_HARDWARE_TYPE, SPI_CHIP_SEL_PIN, SPI_MAX_DEVICES);
 
   /// @brief Graphics object for left side 8x32 SPI Mouth board
-  MD_MAX72XX_GFX leftMouthGraphics = MD_MAX72XX_GFX(&leftMouthMatrix, SPI_MOUTH_WIDTH, SPI_MOUTH_HEIGHT);
+  MD_MAX72XX_GFX leftMouthGraphics = MD_MAX72XX_GFX(&leftMouthMatrix);
 
   /// @brief Protothread state for SPI boards
   pt spiState;
 
-  /// @brief Time since last change in mouth boards' displays
+  /// @brief Time, in milliseconds, at which the last sprite was rendered to the mouth boards
   unsigned long lastRender = millis();
 
   /**
@@ -39,10 +39,10 @@ private:
       if (millis() - lastRender > SPI_DEFAULT_SPRITE_DWELL_TIME)
       {
         leftMouthMatrix.clear();
-        leftMouthMatrix.control(UPDATE, OFF);
-        leftMouthGraphics.fillRect(0, 0, SPI_MOUTH_HEIGHT, SPI_MOUTH_WIDTH, ON);
-        leftMouthGraphics.drawLine(0, 0, SPI_MOUTH_HEIGHT, SPI_MOUTH_WIDTH, OFF);
-        leftMouthMatrix.control(UPDATE, ON);
+        leftMouthMatrix.control(MD_MAX72XX::UPDATE, MD_MAX72XX::OFF);
+        leftMouthGraphics.fillRect(0, 0, SPI_MOUTH_HEIGHT, SPI_MOUTH_WIDTH, MD_MAX72XX::ON);
+        leftMouthGraphics.drawLine(0, 0, SPI_MOUTH_HEIGHT, SPI_MOUTH_WIDTH, MD_MAX72XX::OFF);
+        leftMouthMatrix.control(MD_MAX72XX::UPDATE, MD_MAX72XX::ON);
         lastRender = millis();
       }
 
@@ -55,18 +55,18 @@ private:
 public:
   /**
    * @brief Setup the SPI control objects; should be called from arduino setup()
-   * @sa MouthRenderer::leftMouthMatrix
+   * @sa Mouth_Renderer::leftMouthMatrix
    */
   inline void setup_SPI()
   {
     leftMouthMatrix.begin();
-    leftMouthMatrix.control(INTENSITY, SPI_MOUTH_DEFAULT_BRIGHTNESS);
+    leftMouthMatrix.control(MD_MAX72XX::INTENSITY, SPI_MOUTH_DEFAULT_BRIGHTNESS);
     PT_INIT(&spiState);
   }
 
   /**
    * @brief Schedule the SPI main thread to be run
-   * @sa MouthRenderer::spi_thread(struct pt)
+   * @sa Mouth_Renderer::spi_thread(struct pt)
    */
   inline void main_SPI()
   {
