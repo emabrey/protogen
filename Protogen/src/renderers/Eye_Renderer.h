@@ -15,10 +15,10 @@ private:
   /// @brief Control object for right side 8x16 I2C eye board
   Adafruit_8x16matrix rightEyeMatrix = Adafruit_8x16matrix();
 
-  /// @brief Time since last change in eye boards' displays
+  /// @brief Time, in milliseconds, at which the last sprite was rendered to the eye boards
   unsigned long lastRender = millis();
 
-  /// @brief Time, in milliseconds, at which the last sprite was rendered to the eye boards
+  /// @brief Current sprite for the eye boards
   int currentSpriteIndex = EYE_EXPRESSION_FIRST;
 
   /**

@@ -18,7 +18,7 @@ private:
   /// @brief Time, in milliseconds, at which the last sprite was rendered to the nose boards
   unsigned long lastRender = millis();
 
-  /// @brief Current sprite for the nose board
+  /// @brief Current sprite for the nose boards
   int currentSpriteIndex = NOSE_EXPRESSION_FIRST;
 
   /**
