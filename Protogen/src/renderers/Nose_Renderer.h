@@ -3,8 +3,6 @@
 #include "abstract/I2C_Renderer.h"
 #include "../sprites/Nose_Sprites.h"
 
-#define SPI_LED_ON 1
-
 /**
  * @brief Renderer for the I2C 8x8 nose boards
  */

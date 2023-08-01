@@ -7,7 +7,7 @@
 
 /**
  * @brief Renderer for the SPI 8x32 mouth boards
- * TODO: add the right mouth board to the SPI daisy chain and implement in software
+ * \todo add the right mouth board to the SPI daisy chain and implement in software
  */
 class Mouth_Renderer
 {
